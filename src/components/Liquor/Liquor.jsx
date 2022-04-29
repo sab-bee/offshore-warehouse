@@ -14,7 +14,7 @@ const Liquor = ({ liquor }) => {
 
   const navigate = useNavigate()
   return (
-    <div className='flex flex-col justify-between '>
+    <div className='flex flex-col justify-between'>
       <div>
         <div className='mx-auto min-h-[300px]'>
           <img className='mx-auto' src={thumbnail} alt='liquor bottle' />
@@ -23,7 +23,7 @@ const Liquor = ({ liquor }) => {
           <div>
             <h2 className='text-xl font-medium mb-5 text-brown-500'>{name}</h2>
             <p className='min-h-[100px]'>
-              {detail.length > 200 ? detail.slice(0, 200) : detail}
+              {detail.length > 200 ? detail.slice(0, 200) + ' ...' : detail}
             </p>
           </div>
         </div>
@@ -33,10 +33,11 @@ const Liquor = ({ liquor }) => {
           <h2 className='text-3xl font-semibold text-brown-400'>$ {price}</h2>
           <div>
             <p>
-              quantity : <span className='bg-brown-50'>{quantity}</span>
+              quantity :{' '}
+              <span className='text-brown-500 font-medium'>{quantity}</span>
             </p>
             <p>
-              supplier : <span className='bg-brown-50'>{supplier}</span>
+              supplier : <span className='text-brown-500 font-medium'>{supplier}</span>
             </p>
           </div>
         </div>
