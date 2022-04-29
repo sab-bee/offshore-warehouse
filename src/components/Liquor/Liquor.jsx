@@ -9,6 +9,7 @@ const Liquor = ({ liquor }) => {
     thumbnail,
     supplier,
     detail,
+    _id,
   } = liquor
 
   const navigate = useNavigate()
@@ -42,7 +43,7 @@ const Liquor = ({ liquor }) => {
         <div className='text-center mt-10'>
           <button
             className='p-3 bg-brown-900 text-white'
-            onClick={() => navigate('/inventory/:id')}
+            onClick={() => navigate(`inventory/${_id}`)}
           >
             manage
           </button>

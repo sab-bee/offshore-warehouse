@@ -116,6 +116,7 @@ const AddLiquor = () => {
         <input
           className='bg-brown-500 text-white p-2 cursor-pointer'
           type='submit'
+          value='add new liquor'
         />
       </form>
     </div>

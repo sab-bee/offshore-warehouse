@@ -1,6 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 import { Login, Navbar } from './components'
-import { AddLiquor, Home, ManageInventories, MyProducts } from './pages'
+import {
+  AddLiquor,
+  Home,
+  Inventory,
+  ManageInventories,
+  MyProducts,
+} from './pages'
 
 function App() {
   return (
@@ -16,6 +22,7 @@ function App() {
             element={<ManageInventories />}
           ></Route>
           <Route path='/myProducts' element={<MyProducts />}></Route>
+          <Route path='/inventory/:id' element={<Inventory />}></Route>
         </Route>
       </Routes>
     </div>
