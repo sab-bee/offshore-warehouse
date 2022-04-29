@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Login, Navbar } from './components'
-import { AddProduct, Home } from './pages'
+import { AddLiquor, Home, ManageInventories, MyProducts } from './pages'
 
 function App() {
   return (
@@ -10,7 +10,12 @@ function App() {
         <Route>
           <Route path='/' element={<Home />}></Route>
           <Route path='/login' element={<Login />}></Route>
-          <Route path='/addProduct' element={<AddProduct />}></Route>
+          <Route path='/addProduct' element={<AddLiquor />}></Route>
+          <Route
+            path='/manageInventories'
+            element={<ManageInventories />}
+          ></Route>
+          <Route path='/myProducts' element={<MyProducts />}></Route>
         </Route>
       </Routes>
     </div>

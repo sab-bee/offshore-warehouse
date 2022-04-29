@@ -19,11 +19,15 @@ const Navbar = () => {
         <div className='space-x-5'>
           <Link to='/'>Home</Link>
           {user ? (
-            <button onClick={() => signOut(auth)}>logout</button>
+            <>
+              <Link to='/manageInventories'>Inventory</Link>
+              <Link to='/addProduct'>Add Liquor</Link>
+              <Link to='/myProducts'>My Liquors</Link>
+              <button onClick={() => signOut(auth)}>logout</button>
+            </>
           ) : (
             <Link to='/login'>Login</Link>
           )}
-          <Link to='/'>Inventory</Link>
         </div>
       </div>
     </div>
@@ -31,3 +35,6 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+//https://i.ibb.co/PY6Q03X/Odd-Bins.png
+// https://i.ibb.co/17MBSzF/Odd-Bins-banner.png
