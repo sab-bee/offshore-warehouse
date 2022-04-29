@@ -1,13 +1,16 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-export function useLiquors() {
+export function useLiquors(param) {
   const [liquors, setLiquors] = useState([])
   useEffect(() => {
-    axios
-      .get('https://pacific-oasis-60084.herokuapp.com/api/liquors')
-      .then((res) => setLiquors(res.data))
-  }, [])
-  
+    const url = `http://localhost:5000/api/liquors?amount=${param}`
+    axios.get(url).then((res) => {
+      setLiquors(res.data)
+    })
+  }, [param])
+
   return { liquors }
 }
+
+// https://pacific-oasis-60084.herokuapp.com

@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   return (
-    <div className='shadow-lg'>
+    <div className='shadow-lg bg-accent-brown'>
       <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
         <div className=''>
           <Link to='/'>

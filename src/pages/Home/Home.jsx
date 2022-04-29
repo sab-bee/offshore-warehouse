@@ -1,10 +1,11 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
+import { Header, Liquors } from '../../components'
 
 const Home = () => {
   return (
-    <div>
+    <div className='w-4/5 mx-auto'>
       <Header></Header>
+      <Liquors></Liquors>
     </div>
   )
 }
