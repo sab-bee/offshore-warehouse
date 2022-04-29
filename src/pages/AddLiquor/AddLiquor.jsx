@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 const AddLiquor = () => {
   const { register, handleSubmit, reset } = useForm()
   const onSubmit = async (data) => {
-    console.log(data)
+    // console.log(data)
     axios
       .post('http://localhost:5000/api/liquor', data)
       .then((res) => console.log(res))
@@ -89,16 +89,28 @@ const AddLiquor = () => {
             {...register('banner', { required: true })}
           />
         </div>
-
         <div className='flex flex-col gap-3'>
-          <label htmlFor='details'>Product details</label>
+          <label htmlFor='category'>Select category</label>
+          <select
+            id='category'
+            className='bg-brown-50 p-2 text-brown-500'
+            {...register('category', { required: true })}
+            defaultValue='none'
+          >
+            <option value='wine'>wine</option>
+            <option value='tequila'>tequila</option>
+            <option value='whiskey'>whiskey</option>
+          </select>
+        </div>
+        <div className='flex flex-col gap-3'>
+          <label htmlFor='detail'>Product detail</label>
           <textarea
-            id='details'
+            id='detail'
             className='bg-brown-50 p-3 text-brown-500'
             placeholder='Mayacamas Vineyards’ 2014 Cabernet Sauvignon is a graceful return to form from an iconic Napa winery.'
             rows='6'
             type=''
-            {...register('age', { required: true, minLength: 10 })}
+            {...register('detail', { required: true, minLength: 10 })}
           />
         </div>
         <input

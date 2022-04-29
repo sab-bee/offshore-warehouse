@@ -1,5 +1,3 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
 import { useLiquors } from '../../hooks/useLiquors'
 
 const ManageInventories = () => {
@@ -14,6 +12,7 @@ const ManageInventories = () => {
           src={liquor?.banner}
           alt=''
         />
+      
       ))}
     </div>
   )
