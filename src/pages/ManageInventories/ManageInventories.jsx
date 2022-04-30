@@ -7,7 +7,9 @@ const ManageInventories = () => {
   const { liquors, setLiquors } = useLiquors()
   const navigate = useNavigate()
 
-  const removeFromStock = (_id) => {
+  const removeFromStock = async (_id) => {
+    if (!window.confirm('are you sure?')) return
+
     axios.delete(`http://localhost:5000/api/liquor/${_id}`).then((res) => {
       console.log(res)
       const rest = liquors.filter((liquor) => liquor._id !== _id)

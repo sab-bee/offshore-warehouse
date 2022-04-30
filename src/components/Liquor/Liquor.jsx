@@ -16,8 +16,12 @@ const Liquor = ({ liquor }) => {
   return (
     <div className='flex flex-col justify-between'>
       <div>
-        <div className='mx-auto min-h-[300px]'>
-          <img className='mx-auto' src={thumbnail} alt='liquor bottle' />
+        <div className='mx-auto'>
+          <img
+            className='mx-auto md:h-[300px] object-cover'
+            src={thumbnail}
+            alt='liquor bottle'
+          />
         </div>
         <div className='p-5 space-y-10'>
           <div>
@@ -37,7 +41,8 @@ const Liquor = ({ liquor }) => {
               <span className='text-brown-500 font-medium'>{quantity}</span>
             </p>
             <p>
-              supplier : <span className='text-brown-500 font-medium'>{supplier}</span>
+              supplier :{' '}
+              <span className='text-brown-500 font-medium'>{supplier}</span>
             </p>
           </div>
         </div>

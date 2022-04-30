@@ -22,7 +22,7 @@ const Navbar = () => {
             <>
               <Link to='/manageInventories'>Inventory</Link>
               <Link to='/addProduct'>Add Liquor</Link>
-              <Link to='/myProducts'>My Liquors</Link>
+              <Link to='/myLiquors'>My Liquors</Link>
               <button onClick={() => signOut(auth)}>logout</button>
             </>
           ) : (

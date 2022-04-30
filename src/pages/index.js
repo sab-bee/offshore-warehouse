@@ -1,7 +1,8 @@
 import Home from './Home/Home'
 import AddLiquor from './AddLiquor/AddLiquor'
 import ManageInventories from './ManageInventories/ManageInventories'
-import MyProducts from './MyProducts/MyProducts'
+import MyLiquors from './MyLiquors/MyLiquors'
 import Inventory from './Inventory/Inventory'
+import NotFound from './NotFound/NotFound'
 
-export { Home, ManageInventories, MyProducts, AddLiquor, Inventory }
+export { Home, ManageInventories, MyLiquors, AddLiquor, Inventory, NotFound }
