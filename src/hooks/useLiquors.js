@@ -10,7 +10,7 @@ export function useLiquors(param) {
     })
   }, [param])
 
-  return { liquors }
+  return { liquors, setLiquors }
 }
 
 // https://pacific-oasis-60084.herokuapp.com

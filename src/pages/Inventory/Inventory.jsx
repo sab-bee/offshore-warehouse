@@ -11,7 +11,7 @@ const Inventory = () => {
   const { register, handleSubmit, reset } = useForm()
   const onSubmit = (data) => {
     const quantity = liquor.quantity + 1 * data.quantity
-
+    
     axios
       .put(`http://localhost:5000/api/liquor/${id}`, { quantity })
       .then((res) => {

@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         'brown-50': '#EFEBE9',
+        'brown-extra-light': '#FAF9F7',
         'brown-200': '#BCAAA4',
         'brown-400': '#8D6E63',
         'brown-500': '#795548',
@@ -12,10 +13,7 @@ module.exports = {
         'accent-brown': '#E0D8D3',
       },
     },
-    backgroundImage: {
-      'hero-pattern': "url('/img/hero-pattern.svg')",
-      'footer-texture': "url('/img/footer-texture.png')",
-    },
+    
   },
   plugins: [],
 }
