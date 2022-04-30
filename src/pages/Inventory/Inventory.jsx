@@ -8,8 +8,17 @@ const Inventory = () => {
   const navigate = useNavigate()
   const [liquor, setLiquor] = useState({})
 
-  const { register, handleSubmit } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const { register, handleSubmit, reset } = useForm()
+  const onSubmit = (data) => {
+    const quantity = liquor.quantity + 1 * data.quantity
+
+    axios
+      .put(`http://localhost:5000/api/liquor/${id}`, { quantity })
+      .then((res) => {
+        console.log(res.data)
+        reset()
+      })
+  }
 
   useEffect(() => {
     axios.get(`http://localhost:5000/api/liquor/${id}`).then((res) => {
@@ -43,7 +52,7 @@ const Inventory = () => {
                 className='px-5 py-3 bg-brown-50 w-32 border border-brown-400'
                 type='number'
                 placeholder='quantity'
-                {...register('restock', { required: true, min: 1, max: 500 })}
+                {...register('quantity', { required: true, min: 1, max: 5000 })}
               />
               <input
                 className='bg-brown-900 px-5 py-3 w-32 ml-5 text-white cursor-pointer'
