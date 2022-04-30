@@ -3,6 +3,7 @@ import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.init'
+import { ActiveLink } from '../ActiveLink.ActiveLink'
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
@@ -12,21 +13,25 @@ const Navbar = () => {
     <div className='shadow-lg bg-accent-brown'>
       <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
         <div className=''>
-          <Link to='/'>
-            <h2 className='text-2xl'>logo</h2>
-          </Link>
+          <ActiveLink to='/'>
+            <h2 className='text-xl'>
+              <span>offshore</span>
+              <br />
+              <span>sotckroom</span>
+            </h2>
+          </ActiveLink>
         </div>
         <div className='space-x-5'>
-          <Link to='/'>Home</Link>
+          <ActiveLink to='/'>Home</ActiveLink>
           {user ? (
             <>
-              <Link to='/manageInventories'>Inventory</Link>
-              <Link to='/addProduct'>Add Liquor</Link>
-              <Link to='/myLiquors'>My Liquors</Link>
+              <ActiveLink to='/manageInventories'>Inventory</ActiveLink>
+              <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
+              <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
               <button onClick={() => signOut(auth)}>logout</button>
             </>
           ) : (
-            <Link to='/login'>Login</Link>
+            <ActiveLink to='/user/login'>Login</ActiveLink>
           )}
         </div>
       </div>
