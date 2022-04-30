@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useFirebase } from '../../hooks/useFirebase'
+import { motion } from 'framer-motion'
 
 const Login = () => {
   const { handleSignInWithGoogle } = useFirebase()
@@ -14,7 +15,12 @@ const Login = () => {
   }
 
   return (
-    <div className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto shadow-lg mt-12 rounded-lg p-12'>
+    <motion.div
+      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg mt-12 rounded-lg p-12'
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'easeInOut', delay: 0.1 }}
+    >
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='
@@ -54,7 +60,7 @@ const Login = () => {
       </form>
       <div className='mt-12'>
         <button
-          className='bg-brown-500 text-white p-3 cursor-pointer hover:bg-brown-400 w-full'
+          className='border border-brown-500 text-brown-900 p-3 cursor-pointer hover:bg-brown-500 hover:text-white w-full transition-colors'
           onClick={handleSignInWithGoogle}
         >
           Sign In With Google
@@ -66,7 +72,7 @@ const Login = () => {
           don't have account?
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

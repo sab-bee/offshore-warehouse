@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { motion } from 'framer-motion'
 
 const AddLiquor = () => {
   const { register, handleSubmit, reset } = useForm()
@@ -19,7 +20,12 @@ const AddLiquor = () => {
     reset()
   }
   return (
-    <div className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto border-2 mt-12 rounded-lg p-12'>
+    <motion.div
+      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto mt-12 rounded-lg p-12 shadow-lg'
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.1 }}
+    >
       <h2 className='my-5 text-3xl text-center'>add new item</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -34,7 +40,7 @@ const AddLiquor = () => {
           <input
             id='productName'
             className='
-            bg-brown-50 p-3 text-brown-500'
+            bg-white p-3 text-brown-500'
             placeholder='Mayacamas Vineyards'
             type='text'
             {...register('productName', { required: true, maxLength: 100 })}
@@ -45,7 +51,7 @@ const AddLiquor = () => {
           <label htmlFor='productPrice'>Product price</label>
           <input
             id='productPrice'
-            className='bg-brown-50 p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500'
             placeholder='50'
             type='number'
             {...register('productPrice', {
@@ -60,7 +66,7 @@ const AddLiquor = () => {
           <label htmlFor='supplier'>Supplier</label>
           <input
             id='supplier'
-            className='bg-brown-50 p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500'
             placeholder='henry'
             type='text'
             {...register('supplier', { required: true })}
@@ -70,7 +76,7 @@ const AddLiquor = () => {
           <label htmlFor='quantity'>Quantity</label>
           <input
             id='quantity'
-            className='bg-brown-50 p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500'
             placeholder='16'
             type='number'
             {...register('quantity', { required: true, min: 1, max: 2000 })}
@@ -80,7 +86,7 @@ const AddLiquor = () => {
           <label htmlFor='thumbnail'>Product thumbnail</label>
           <input
             id='thumbnail'
-            className='bg-brown-50 p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500'
             placeholder='https://liquor.png'
             type='text'
             {...register('thumbnail', { required: true })}
@@ -90,7 +96,7 @@ const AddLiquor = () => {
           <label htmlFor='banner_thumbnail'>Product banner</label>
           <input
             id='banner'
-            className='bg-brown-50 p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500'
             placeholder='https://liquor_banner.png'
             type='text'
             {...register('banner', { required: true })}
@@ -100,7 +106,7 @@ const AddLiquor = () => {
           <label htmlFor='category'>Select category</label>
           <select
             id='category'
-            className='bg-brown-50 p-2 text-brown-500'
+            className='bg-white p-2 text-brown-500'
             {...register('category', { required: true })}
             defaultValue='none'
           >
@@ -113,7 +119,7 @@ const AddLiquor = () => {
           <label htmlFor='detail'>Product detail</label>
           <textarea
             id='detail'
-            className='bg-brown-50 p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500'
             placeholder='Mayacamas Vineyards’ 2014 Cabernet Sauvignon is a graceful return to form from an iconic Napa winery.'
             rows='6'
             type=''
@@ -126,7 +132,7 @@ const AddLiquor = () => {
           value='add new liquor'
         />
       </form>
-    </div>
+    </motion.div>
   )
 }
 

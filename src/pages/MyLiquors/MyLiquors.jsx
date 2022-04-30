@@ -2,6 +2,7 @@ import React from 'react'
 import { useLiquors } from '../../hooks/useLiquors'
 import bin from '../../assets/icon/bin.svg'
 import axios from 'axios'
+import { motion } from 'framer-motion'
 
 const MyLiquors = () => {
   const { liquors, setLiquors } = useLiquors()
@@ -23,12 +24,18 @@ const MyLiquors = () => {
         <p className='font-medium'>quantity</p>
         <p className='font-medium'>action</p>
       </div>
-      {liquors.map((liquor) => (
-        <MyLiquor
+      {liquors.map((liquor, index) => (
+        <motion.div
           key={liquor._id}
-          liquor={liquor}
-          removeFromMyList={removeFromMyList}
-        ></MyLiquor>
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.2, ease: 'easeInOut', delay: index * 0.1 }}
+        >
+          <MyLiquor
+            liquor={liquor}
+            removeFromMyList={removeFromMyList}
+          ></MyLiquor>
+        </motion.div>
       ))}
     </div>
   )

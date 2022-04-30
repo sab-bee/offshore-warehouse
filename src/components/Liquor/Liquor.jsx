@@ -14,11 +14,11 @@ const Liquor = ({ liquor }) => {
 
   const navigate = useNavigate()
   return (
-    <div className='flex flex-col justify-between'>
+    <div className='flex flex-col justify-between min-h-[680px]'>
       <div>
         <div className='mx-auto'>
           <img
-            className='mx-auto md:h-[300px] object-cover'
+            className='mx-auto md:h-[300px] object-cover hover:scale-110 transition-transform ease-out duration-300'
             src={thumbnail}
             alt='liquor bottle'
           />

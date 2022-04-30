@@ -4,13 +4,19 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.init'
 import { ActiveLink } from '../ActiveLink.ActiveLink'
+import { motion } from 'framer-motion'
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
   const navigate = useNavigate()
 
   return (
-    <div className='shadow-lg bg-accent-brown'>
+    <motion.div
+      className='shadow-lg bg-accent-brown'
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+    >
       <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
         <div className=''>
           <ActiveLink to='/'>
@@ -35,7 +41,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

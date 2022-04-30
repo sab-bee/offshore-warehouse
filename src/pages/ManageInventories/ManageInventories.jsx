@@ -2,6 +2,7 @@ import { useLiquors } from '../../hooks/useLiquors'
 import bin from '../../assets/icon/bin.svg'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const ManageInventories = () => {
   const { liquors, setLiquors } = useLiquors()
@@ -17,8 +18,13 @@ const ManageInventories = () => {
     })
   }
   return (
-    <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 rounded-2xl'>
-      <table className='w-full'>
+    <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 overflow-hidden rounded-2xl'>
+      <motion.table
+        className='w-full'
+        initial={{ y: 500, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.1 }}
+      >
         <thead className='bg-brown-50'>
           <tr>
             <th className='p-5'>product</th>
@@ -37,13 +43,16 @@ const ManageInventories = () => {
             ></ManageLiquor>
           ))}
         </tbody>
-      </table>
-      <button
+      </motion.table>
+      <motion.button
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
         className='bg-brown-400 p-3 w-full text-white mt-5 rounded-md hover:bg-brown-500'
         onClick={() => navigate('/addProduct')}
       >
         add new liquor
-      </button>
+      </motion.button>
     </div>
   )
 }
