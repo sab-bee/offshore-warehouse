@@ -4,14 +4,33 @@ import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Inventory = () => {
+  const { register, handleSubmit, reset } = useForm()
   const { id } = useParams()
   const navigate = useNavigate()
   const [liquor, setLiquor] = useState({})
 
-  const { register, handleSubmit, reset } = useForm()
+  useEffect(() => {
+    axios.get(`http://localhost:5000/api/liquor/${id}`).then((res) => {
+      setLiquor(res.data)
+      localStorage.setItem('quantity', liquor.quantity)
+    })
+  }, [id, liquor.quantity])
+
   const onSubmit = (data) => {
-    const quantity = liquor.quantity + 1 * data.quantity
-    
+    const quantityFromLocal = localStorage.getItem('quantity')
+    const quantity = parseInt(quantityFromLocal) + parseInt(data.quantity)
+    localStorage.setItem('quantity', quantity)
+    updateAPI(quantity)
+  }
+
+  const handleDeliver = async () => {
+    const quantityFromLocal = localStorage.getItem('quantity')
+    const quantity = parseInt(quantityFromLocal) - 1
+    localStorage.setItem('quantity', quantity)
+    updateAPI(quantity)
+  }
+
+  const updateAPI = (quantity) => {
     axios
       .put(`http://localhost:5000/api/liquor/${id}`, { quantity })
       .then((res) => {
@@ -20,11 +39,6 @@ const Inventory = () => {
       })
   }
 
-  useEffect(() => {
-    axios.get(`http://localhost:5000/api/liquor/${id}`).then((res) => {
-      setLiquor(res.data)
-    })
-  }, [id])
   return (
     <div className='mb-12'>
       <div className='grid grid-cols-1 lg:grid-cols-2 w-3/4 mx-auto items-center mt-12 gap-y-12 min-h-[72vh]'>
@@ -44,7 +58,10 @@ const Inventory = () => {
           <h2 className='text-2xl mt-12'>price : {liquor.productPrice}</h2>
           <p className='text-brown-500 mb-12'>supplier : {liquor.supplier}</p>
           <div>
-            <button className='bg-brown-200 px-5 py-3 w-32 text-brown-900 font-medium'>
+            <button
+              className='bg-brown-200 px-5 py-3 w-32 text-brown-900 font-medium'
+              onClick={handleDeliver}
+            >
               delivered
             </button>
             <form onSubmit={handleSubmit(onSubmit)} className='mt-12'>

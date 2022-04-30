@@ -63,7 +63,7 @@ function ManageLiquor({ liquor, removeFromStock }) {
           <p>{productName}</p>
         </div>
       </td>
-      <td className='text-center'>{productPrice}</td>
+      <td className='text-center'>$ {productPrice}</td>
       <td className='text-center'>{quantity}</td>
       <td className='text-center '>
         <button className=''>

@@ -5,7 +5,7 @@ import { auth } from '../firebase/firebase.init'
 export function RequireAuth({ children }) {
   const [user, loading] = useAuthState(auth)
   const location = useLocation()
-  console.log(user)
+
   if (loading) return
 
   if (!user) {

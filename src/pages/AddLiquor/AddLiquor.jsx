@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { intParser } from '../../utility/intParser'
 
 const AddLiquor = () => {
   const { register, handleSubmit, reset } = useForm()
@@ -9,7 +8,8 @@ const AddLiquor = () => {
   const onSubmit = async (data) => {
     let { productPrice: price, quantity: quan, ...rest } = data
 
-    const [productPrice, quantity] = intParser(price, quan)
+    const productPrice = parseInt(price)
+    const quantity = parseInt(quan)
 
     const newData = { ...rest, productPrice, quantity }
 
