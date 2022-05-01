@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect } from 'react'
 import {
   useCreateUserWithEmailAndPassword,
@@ -37,6 +38,11 @@ export function useFirebase() {
 
   useEffect(() => {
     if (googleUser || createUser || loginUser) {
+      const email = loginUser?.user?.email
+      axios.post('http://localhost:5000/api/login', { email }).then((res) => {
+        console.log(res.data.token)
+        localStorage.setItem('token', res.data?.token)
+      })
       navigate(from, { replace: true })
     }
   }, [googleUser, from, navigate, createUser, loginUser])

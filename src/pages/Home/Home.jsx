@@ -10,7 +10,7 @@ const Home = () => {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
-        className='text-center text-4xl font-semibold text-brown-500 font-magfirea'
+        className='text-center text-6xl text-brown-500 font-monea'
       >
         inventory items
       </motion.p>

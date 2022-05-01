@@ -36,7 +36,14 @@ const Navbar = () => {
                 <ActiveLink to='/manageInventories'>Inventory</ActiveLink>
                 <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                 <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
-                <button onClick={() => signOut(auth)}>logout</button>
+                <button
+                  onClick={() => {
+                    signOut(auth)
+                    navigate('/user/login')
+                  }}
+                >
+                  logout
+                </button>
               </>
             ) : (
               <ActiveLink to='/user/login'>Login</ActiveLink>
@@ -68,7 +75,14 @@ const Navbar = () => {
                 <ActiveLink to='/manageInventories'>Inventory</ActiveLink>
                 <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                 <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
-                <button onClick={() => signOut(auth)}>logout</button>
+                <button
+                  onClick={() => {
+                    signOut(auth)
+                    navigate('/user/login')
+                  }}
+                >
+                  logout
+                </button>
               </>
             ) : (
               <ActiveLink to='/user/login'>Login</ActiveLink>

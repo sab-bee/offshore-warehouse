@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLiquors } from '../../hooks/useLiquors'
 import bin from '../../assets/icon/bin.svg'
 import axios from 'axios'
 import { motion } from 'framer-motion'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../firebase/firebase.init'
 
 const MyLiquors = () => {
-  const { liquors, setLiquors } = useLiquors()
+  // const { liquors, setLiquors } = useLiquors()
+  const [liquors, setLiquors] = useState([])
+  const [user] = useAuthState(auth)
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/my_liquors', {
+        params: {
+          email: user?.email,
+        },
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+      .then((res) => {
+        console.log(res)
+        setLiquors(res.data)
+      })
+  }, [user])
 
   const removeFromMyList = (_id) => {
     if (!window.confirm('are you sure?')) return
