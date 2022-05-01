@@ -1,25 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useFirebase } from '../../hooks/useFirebase'
 import { motion } from 'framer-motion'
 
 const Login = () => {
-  const { handleSignInWithGoogle } = useFirebase()
+  const { handleSignInWithGoogle, handleResetPassword, handleLoginWithEmail } =
+    useFirebase()
   const { register, handleSubmit, reset } = useForm()
-  const { handleLoginWithEmail } = useFirebase()
+  const [resetForm, setResetForm] = useState(false)
+  const [recoEmail, setRecoEmail] = useState('')
 
   const navigate = useNavigate()
   const onSubmit = async (data) => {
     handleLoginWithEmail(data, reset)
   }
 
-  return (
+  const resetPass = (event) => {
+    event.preventDefault()
+    handleResetPassword(recoEmail)
+    setResetForm(false)
+  }
+
+  return resetForm ? (
+    <div className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg my-20 rounded-lg p-12 flex flex-col justify-center relative'>
+      <button
+        className='absolute right-5 top-5 rounded-full bg-brown-500 text-white w-8 h-8'
+        onClick={() => setResetForm(false)}
+      >
+        X
+      </button>
+      <form onSubmit={resetPass}>
+        <label htmlFor='email'>Recovery email</label>
+        <input
+          type='email'
+          className='w-full p-3 mt-4'
+          placeholder='enter email address'
+          onBlur={(event) => setRecoEmail(event.target.value)}
+        />
+        <input
+          type='submit'
+          className='bg-brown-500 text-white px-5 py-2 mt-5 cursor-pointer'
+          value='send'
+        />
+      </form>
+    </div>
+  ) : (
     <motion.div
-      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg mt-12 rounded-lg p-12'
+      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg my-12 rounded-lg p-12'
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.2, ease: 'easeInOut', delay: 0.1 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+      exit={{ x: -300, opacity: 0 }}
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -51,6 +83,12 @@ const Login = () => {
             {...register('password', { required: true, maxLength: 100 })}
           />{' '}
         </div>
+        <p
+          className='w-fit ml-auto cursor-pointer underline'
+          onClick={() => setResetForm(true)}
+        >
+          forgot password
+        </p>
 
         <input
           className='bg-brown-500 text-white p-3 cursor-pointer hover:bg-brown-400'
@@ -66,7 +104,7 @@ const Login = () => {
           Sign In With Google
         </button>
         <p
-          className='underline mt-4 text-center cursor-pointer'
+          className='underline mt-4 cursor-pointer w-fit mx-auto'
           onClick={() => navigate('/user/register')}
         >
           don't have account?

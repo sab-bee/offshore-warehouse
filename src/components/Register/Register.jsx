@@ -14,10 +14,11 @@ const Register = () => {
   }
   return (
     <motion.div
-      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg mt-12 rounded-lg p-12'
+      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg my-12 rounded-lg p-12'
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.2, ease: 'easeInOut', delay: 0.1 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+      exit={{ x: 300, opacity: 0 }}
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -80,7 +81,7 @@ const Register = () => {
       </form>
       <div>
         <p
-          className='underline mt-4 text-center cursor-pointer'
+          className='underline mt-4 cursor-pointer w-fit mx-auto'
           onClick={() => navigate('/user/login')}
         >
           already have an account?

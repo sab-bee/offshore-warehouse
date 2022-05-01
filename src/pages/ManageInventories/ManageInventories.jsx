@@ -23,7 +23,7 @@ const ManageInventories = () => {
         className='w-full'
         initial={{ y: 500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.1 }}
+        transition={{ duration: 0.8, ease: 'easeInOut'}}
       >
         <thead className='bg-brown-50'>
           <tr>

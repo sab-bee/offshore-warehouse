@@ -12,8 +12,10 @@ module.exports = {
         'accent-light': '#F5F2ED',
         'accent-brown': '#E0D8D3',
       },
+      fontFamily: {
+        magfirea: "'maghfirea' , serif",
+      },
     },
-    
   },
   plugins: [],
 }

@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'maghfirea';
+  src: url('./assets/font/Maghfirea.otf') format('opentype');
+}
 body {
   margin: 0;
   font-family: 'poppins', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',

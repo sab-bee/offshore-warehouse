@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const Inventory = () => {
   const { register, handleSubmit, reset } = useForm()
@@ -42,18 +43,34 @@ const Inventory = () => {
   return (
     <div className='mb-12'>
       <div className='grid grid-cols-1 lg:grid-cols-2 w-3/4 mx-auto items-center mt-12 gap-y-12 min-h-[72vh]'>
-        <div className=''>
+        <motion.div
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+        >
           <img
             className='mx-auto lg:h-[550px] object-cover'
             src={liquor.banner}
             alt={liquor.productName + ' banner'}
           />
-        </div>
+        </motion.div>
         <div className=''>
-          <h2 className='text-2xl text-brown-900 mb-16'>
+          <motion.h2
+            className='text-2xl text-brown-900 mb-16'
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          >
             {liquor.productName}
-          </h2>
-          <p className='mb-6 lg:w-3/5'>{liquor.detail}</p>
+          </motion.h2>
+          <motion.p
+            className='mb-6 lg:w-3/5'
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          >
+            {liquor.detail}
+          </motion.p>
           <p className='mb-5'>product ID : {liquor._id}</p>
           <h2 className='text-2xl mt-12'>price : {liquor.productPrice}</h2>
           <p className='text-brown-500 mb-12'>supplier : {liquor.supplier}</p>
