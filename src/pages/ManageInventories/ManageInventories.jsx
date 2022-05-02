@@ -2,7 +2,7 @@ import { useLiquors } from '../../hooks/useLiquors'
 import bin from '../../assets/icon/bin.svg'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { Modal } from '../../components'
 
@@ -27,10 +27,12 @@ const ManageInventories = () => {
 
   return (
     <>
-      {showModal && (
-        <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
-      )}
-      <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 overflow-hidden rounded-2xl'>
+      <AnimatePresence>
+        {showModal && (
+          <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
+        )}
+      </AnimatePresence>
+      <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 overflow-hidden rounded-2xl min-h-screen'>
         <motion.table
           className='w-full'
           initial={{ y: 500, opacity: 0 }}

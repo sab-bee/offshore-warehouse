@@ -47,7 +47,7 @@ const AddLiquor = () => {
           <input
             id='productName'
             className='
-            bg-white p-3 text-brown-500'
+            bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='Mayacamas Vineyards'
             type='text'
             {...register('productName', { required: true, maxLength: 100 })}
@@ -58,7 +58,7 @@ const AddLiquor = () => {
           <label htmlFor='productPrice'>Product price</label>
           <input
             id='productPrice'
-            className='bg-white p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='50'
             type='number'
             {...register('productPrice', {
@@ -73,7 +73,7 @@ const AddLiquor = () => {
           <label htmlFor='supplier'>Supplier</label>
           <input
             id='supplier'
-            className='bg-white p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='henry'
             type='text'
             {...register('supplier', { required: true })}
@@ -83,7 +83,7 @@ const AddLiquor = () => {
           <label htmlFor='quantity'>Quantity</label>
           <input
             id='quantity'
-            className='bg-white p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='16'
             type='number'
             {...register('quantity', { required: true, min: 1, max: 2000 })}
@@ -93,17 +93,17 @@ const AddLiquor = () => {
           <label htmlFor='thumbnail'>Product thumbnail</label>
           <input
             id='thumbnail'
-            className='bg-white p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='https://liquor.png'
             type='text'
             {...register('thumbnail', { required: true })}
           />
         </div>
         <div className='flex flex-col gap-3'>
-          <label htmlFor='banner_thumbnail'>Product banner</label>
+          <label htmlFor='banner'>Product banner</label>
           <input
             id='banner'
-            className='bg-white p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='https://liquor_banner.png'
             type='text'
             {...register('banner', { required: true })}
@@ -113,11 +113,13 @@ const AddLiquor = () => {
           <label htmlFor='category'>Select category</label>
           <select
             id='category'
-            className='bg-white p-2 text-brown-500'
+            className='bg-white p-2 text-brown-500 outline-none'
             {...register('category', { required: true })}
             defaultValue='none'
           >
-            <option value='wine'>wine</option>
+            <option className='' value='wine'>
+              wine
+            </option>
             <option value='tequila'>tequila</option>
             <option value='whiskey'>whiskey</option>
           </select>
@@ -126,7 +128,7 @@ const AddLiquor = () => {
           <label htmlFor='detail'>Product detail</label>
           <textarea
             id='detail'
-            className='bg-white p-3 text-brown-500'
+            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
             placeholder='Mayacamas Vineyards’ 2014 Cabernet Sauvignon is a graceful return to form from an iconic Napa winery.'
             rows='6'
             type=''

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import bin from '../../assets/icon/bin.svg'
 import axios from 'axios'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase/firebase.init'
 import { useNavigate } from 'react-router-dom'
@@ -46,9 +46,11 @@ const MyLiquors = () => {
 
   return (
     <>
-      {showModal && (
-        <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
-      )}
+      <AnimatePresence>
+        {showModal && (
+          <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
+        )}
+      </AnimatePresence>
       <div className='w-full md:w-4/5 lg:w-1/2 mx-auto bg-brown-extra-light p-6 rounded-2xl my-12'>
         <div className='grid grid-cols-4 justify-items-center'>
           <p className='font-medium'>product</p>
