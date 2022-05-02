@@ -44,7 +44,7 @@ const Inventory = () => {
     <div className='mb-12'>
       <div className='grid grid-cols-1 lg:grid-cols-2 w-3/4 mx-auto items-center mt-12 gap-y-12 min-h-[72vh]'>
         <motion.div
-          className='h-[596px] w-full'
+          className='h-[596px] w-full grid items-center'
           initial={{ y: 200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
@@ -75,20 +75,20 @@ const Inventory = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <button
-              className='bg-brown-200 px-5 py-3 w-32 text-brown-900 font-medium'
+              className='border border-primary px-5 py-3 w-32 font-medium'
               onClick={handleDeliver}
             >
               delivered
             </button>
             <form onSubmit={handleSubmit(onSubmit)} className='mt-12'>
               <input
-                className='px-5 py-3 bg-brown-50 w-32 border border-brown-400'
+                className='px-5 py-3 w-32 border border-primary outline-none'
                 type='number'
                 placeholder='quantity'
                 {...register('quantity', { required: true, min: 1, max: 5000 })}
               />
               <input
-                className='bg-brown-900 px-5 py-3 w-32 ml-5 text-white cursor-pointer'
+                className='bg-primary hover:bg-blue-600 px-5 py-3 w-32 ml-5 text-white cursor-pointer'
                 type='submit'
                 value='restock'
               />
@@ -103,7 +103,7 @@ const Inventory = () => {
         transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
       >
         <button
-          className='font-medium text-brown-900 text-xl underline mt-5'
+          className='font-medium text-primary text-xl underline mt-5'
           onClick={() => navigate('/manageInventories')}
         >
           manage inventories

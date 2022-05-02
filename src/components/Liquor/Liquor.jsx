@@ -14,46 +14,43 @@ const Liquor = ({ liquor }) => {
 
   const navigate = useNavigate()
   return (
-    <div className='flex flex-col justify-between min-h-[680px]'>
+    <div className='grid lg:grid-cols-3 gap-5 lg:justify-items-center items-center bg-white rounded-xl p-8 lg:p-4 my-5 shadow-lg shadow-zinc-200 hover:bg-slate-100 hover:scale-105 transition-transform duration-300'>
+      <div className='mx-auto'>
+        <img
+          className='mx-auto h-[200px] object-cover hover:scale-110 transition-transform ease-out duration-300'
+          src={thumbnail}
+          alt='liquor bottle'
+        />
+      </div>
       <div>
-        <div className='mx-auto'>
-          <img
-            className='mx-auto md:h-[300px] object-cover hover:scale-110 transition-transform ease-out duration-300'
-            src={thumbnail}
-            alt='liquor bottle'
-          />
-        </div>
-        <div className='p-5 space-y-10'>
+        <div className=''>
           <div>
-            <h2 className='text-xl font-medium mb-5 text-brown-500'>{name}</h2>
+            <h2 className='text-xl font-medium mb-5 '>{name}</h2>
             <p className='min-h-[100px]'>
               {detail.length > 200 ? detail.slice(0, 200) + ' ...' : detail}
             </p>
           </div>
         </div>
       </div>
-      <div className=''>
-        <div className='flex justify-between items-center p-5'>
-          <h2 className='text-3xl font-semibold text-brown-400'>$ {price}</h2>
-          <div>
-            <p>
-              quantity :{' '}
-              <span className='text-brown-500 font-medium'>{quantity}</span>
-            </p>
-            <p>
-              supplier :{' '}
-              <span className='text-brown-500 font-medium'>{supplier}</span>
-            </p>
-          </div>
+      <div className='space-y-6'>
+        <div className=''>
+          <h2 className='text-3xl font-semibold'>$ {price}</h2>
         </div>
-        <div className='text-center mt-10'>
-          <button
-            className='p-3 bg-brown-900 text-white'
-            onClick={() => navigate(`inventory/${_id}`)}
-          >
-            manage
-          </button>
+        <div>
+          <p>
+            quantity : <span className=' font-medium'>{quantity}</span>
+          </p>
+          <p>
+            supplier : <span className=' font-medium'>{supplier}</span>
+          </p>
         </div>
+
+        <button
+          className='p-3 bg-primary text-white rounded-md'
+          onClick={() => navigate(`inventory/${_id}`)}
+        >
+          manage
+        </button>
       </div>
     </div>
   )

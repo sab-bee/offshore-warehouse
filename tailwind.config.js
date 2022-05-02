@@ -11,6 +11,8 @@ module.exports = {
         'brown-900': '#3E2723',
         'accent-light': '#F5F2ED',
         'accent-brown': '#E0D8D3',
+        primary: '#304FFE',
+        'sky-white': '#E0EFF8',
       },
       fontFamily: {
         magfirea: "'maghfirea' , serif",

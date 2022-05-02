@@ -32,14 +32,14 @@ const ManageInventories = () => {
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 overflow-hidden rounded-2xl min-h-screen'>
+      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6 overflow-hidden rounded-2xl min-h-screen'>
         <motion.table
           className='w-full'
           initial={{ y: 500, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <thead className='bg-brown-50'>
+          <thead className='bg-white'>
             <tr>
               <th className='p-5'>product</th>
               <th className='p-5'>price</th>
@@ -61,7 +61,7 @@ const ManageInventories = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
-          className='bg-brown-400 p-3 w-full text-white mt-5 rounded-md hover:bg-brown-500 font-monea text-2xl'
+          className='bg-primary p-3 w-full text-white mt-5 rounded-md hover:bg-blue-600'
           onClick={() => navigate('/addProduct')}
         >
           add new liquor
@@ -75,7 +75,7 @@ function ManageLiquor({ liquor, removeFromStock }) {
   const { productName, productPrice, quantity, thumbnail, _id } = liquor
 
   return (
-    <tr className=' bg-white border hover:bg-brown-50'>
+    <tr className=' bg-white border hover:bg-blue-50'>
       <td className='w-1/2'>
         <div className=' flex items-center gap-4 w-4/5 mx-auto'>
           <img

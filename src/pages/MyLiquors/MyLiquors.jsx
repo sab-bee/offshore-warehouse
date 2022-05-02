@@ -51,7 +51,7 @@ const MyLiquors = () => {
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className='w-full md:w-4/5 lg:w-1/2 mx-auto bg-brown-extra-light p-6 rounded-2xl my-12'>
+      <div className='w-full md:w-4/5 lg:w-1/2 mx-auto bg-gray-50 p-6 rounded-2xl my-12'>
         <div className='grid grid-cols-4 justify-items-center'>
           <p className='font-medium'>product</p>
           <p className='font-medium'>price</p>
@@ -61,11 +61,11 @@ const MyLiquors = () => {
 
         {liquors.length === 0 && fetched ? (
           <div className='grid justify-items-center gap-y-5'>
-            <p className='mt-5 font-semibold text-brown-500'>
+            <p className='mt-5 font-semibold text-red-400'>
               this user haven't added any item yet
             </p>
             <button
-              className='bg-brown-900 text-brown-50 p-2 rounded'
+              className='bg-primary text-white p-2 rounded'
               onClick={() => navigate('/addProduct')}
             >
               add item now
@@ -97,7 +97,7 @@ const MyLiquors = () => {
 function MyLiquor({ liquor, removeFromMyList }) {
   const { productName, productPrice, thumbnail, quantity, _id } = liquor
   return (
-    <div className='grid grid-cols-4 bg-white my-5 items-center justify-items-center rounded-2xl hover:bg-brown-50'>
+    <div className='grid grid-cols-4 bg-white my-5 items-center justify-items-center rounded-2xl hover:bg-gray-100'>
       <div className='flex items-center '>
         <img className='h-10' src={thumbnail} alt='' />
         <p>{productName}</p>

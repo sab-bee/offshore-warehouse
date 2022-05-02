@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useFirebase } from '../../hooks/useFirebase'
 import { AnimatePresence, motion } from 'framer-motion'
 import Spinner from '../Spinner/Spinner'
+import google from '../../assets/icon/google.svg'
 
 const Login = () => {
   const {
@@ -49,7 +50,7 @@ const Login = () => {
               exit={{ scale: 0.3, opacity: 0 }}
             >
               <button
-                className='absolute right-5 top-5 rounded-full bg-brown-500 text-white w-8 h-8'
+                className='absolute right-5 top-5 rounded-full bg-primary text-white w-8 h-8'
                 onClick={() => setResetForm(false)}
               >
                 X
@@ -62,12 +63,12 @@ const Login = () => {
                   <input
                     type='email'
                     name='email'
-                    className='w-full p-3 mt-4 border-b border-brown-500 outline-none'
+                    className='w-full p-3 mt-4 border-b border-primary outline-none'
                     placeholder='enter email address'
                   />
                   <input
                     type='submit'
-                    className='bg-brown-500 text-white px-5 py-2 mt-8 cursor-pointer'
+                    className='bg-primary text-white px-5 py-2 mt-8 cursor-pointer'
                     value='send'
                   />
                 </div>
@@ -81,7 +82,7 @@ const Login = () => {
           <Spinner></Spinner>
         ) : (
           <motion.div
-            className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto shadow-lg my-12 rounded-lg p-12'
+            className='min-h-[300px] w-4/5 md:w-3/5 lg:w-4/5 xl:w-3/5 mx-auto my-6 p-12'
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
@@ -99,8 +100,8 @@ const Login = () => {
                 <label htmlFor='email'>Email address</label>
                 <input
                   id='email'
-                  className='
-              bg-white p-3 text-brown-500'
+                  className='border border-gray-400
+              p-3 focus:border-primary outline-none rounded-md'
                   placeholder='enter email address'
                   type='text'
                   {...register('email', { required: true, maxLength: 100 })}
@@ -110,34 +111,41 @@ const Login = () => {
                 <label htmlFor='password'>Password</label>
                 <input
                   id='password'
-                  className='
-              bg-white p-3 text-brown-500'
+                  className='border border-gray-400
+                  p-3 focus:border-primary outline-none rounded-md'
                   placeholder='enter password'
                   type='password'
                   {...register('password', { required: true, maxLength: 100 })}
                 />{' '}
               </div>
               <p
-                className='w-fit ml-auto cursor-pointer underline'
+                className='w-fit ml-auto cursor-pointer text-primary underline'
                 onClick={() => setResetForm(true)}
               >
                 forgot password
               </p>
               <input
-                className='bg-brown-500 text-white p-3 cursor-pointer hover:bg-brown-400'
+                className='bg-primary rounded-md text-white p-3 cursor-pointer hover:bg-blue-600'
                 type='submit'
                 value='login'
               />
             </form>
-            <div className='mt-12'>
+
+            <div className=''>
+              <p className='mt-6 flex items-center justify-center gap-4 before:content-[""] before:sm:w-1/5  before:h-[1px] before:block before:bg-primary after:content-[""] after:sm:w-1/5 after:h-[1px] after:block after:bg-primary '>
+                or signin with social account
+              </p>
+            </div>
+            <div className='mt-6'>
               <button
-                className='border border-brown-500 text-brown-900 p-3 cursor-pointer hover:bg-brown-500 hover:text-white w-full transition-colors'
+                className='border border-gray-400 p-2 cursor-pointer hover:bg-sky-white hover:border-transparent w-full transition-colors flex items-center justify-center gap-x-2 rounded-md'
                 onClick={handleSignInWithGoogle}
               >
+                <img src={google} alt='' />
                 Sign In With Google
               </button>
               <p
-                className='underline mt-4 cursor-pointer w-fit mx-auto'
+                className='underline text-primary mt-4 cursor-pointer w-fit mx-auto'
                 onClick={() => navigate('/user/register')}
               >
                 don't have account?

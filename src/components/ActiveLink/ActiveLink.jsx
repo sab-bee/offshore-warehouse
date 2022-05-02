@@ -9,7 +9,7 @@ export function ActiveLink({ children, to, ...props }) {
       <Link
         className='transition-colors pb-2 border-b-2'
         style={{
-          borderBottomColor: match ? '#795548' : 'transparent',
+          borderBottomColor: match ? '#ffffff' : 'transparent',
         }}
         to={to}
         {...props}

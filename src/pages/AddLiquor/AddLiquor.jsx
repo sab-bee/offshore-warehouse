@@ -28,12 +28,12 @@ const AddLiquor = () => {
   }
   return (
     <motion.div
-      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto my-12 rounded-lg p-12 shadow-lg'
+      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto my-12 rounded-2xl p-12 bg-white'
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.1 }}
     >
-      <h2 className='my-5 text-3xl text-center font-monea'>Add new item</h2>
+      <h2 className='my-5 text-3xl text-center text-gray-600'>Add new item</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='
@@ -47,7 +47,7 @@ const AddLiquor = () => {
           <input
             id='productName'
             className='
-            bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
+            bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='Mayacamas Vineyards'
             type='text'
             {...register('productName', { required: true, maxLength: 100 })}
@@ -58,7 +58,7 @@ const AddLiquor = () => {
           <label htmlFor='productPrice'>Product price</label>
           <input
             id='productPrice'
-            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
+            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='50'
             type='number'
             {...register('productPrice', {
@@ -73,8 +73,8 @@ const AddLiquor = () => {
           <label htmlFor='supplier'>Supplier</label>
           <input
             id='supplier'
-            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
-            placeholder='henry'
+            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            placeholder='top liquor'
             type='text'
             {...register('supplier', { required: true })}
           />
@@ -83,7 +83,7 @@ const AddLiquor = () => {
           <label htmlFor='quantity'>Quantity</label>
           <input
             id='quantity'
-            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
+            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='16'
             type='number'
             {...register('quantity', { required: true, min: 1, max: 2000 })}
@@ -93,7 +93,7 @@ const AddLiquor = () => {
           <label htmlFor='thumbnail'>Product thumbnail</label>
           <input
             id='thumbnail'
-            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
+            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='https://liquor.png'
             type='text'
             {...register('thumbnail', { required: true })}
@@ -103,7 +103,7 @@ const AddLiquor = () => {
           <label htmlFor='banner'>Product banner</label>
           <input
             id='banner'
-            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
+            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='https://liquor_banner.png'
             type='text'
             {...register('banner', { required: true })}
@@ -113,7 +113,7 @@ const AddLiquor = () => {
           <label htmlFor='category'>Select category</label>
           <select
             id='category'
-            className='bg-white p-2 text-brown-500 outline-none'
+            className='bg-white p-2 outline-none border'
             {...register('category', { required: true })}
             defaultValue='none'
           >
@@ -128,7 +128,7 @@ const AddLiquor = () => {
           <label htmlFor='detail'>Product detail</label>
           <textarea
             id='detail'
-            className='bg-white p-3 text-brown-500 border-b-2 border-transparent focus:border-b-2 transition-colors focus:border-brown-500 outline-none'
+            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='Mayacamas Vineyards’ 2014 Cabernet Sauvignon is a graceful return to form from an iconic Napa winery.'
             rows='6'
             type=''
@@ -136,7 +136,7 @@ const AddLiquor = () => {
           />
         </div>
         <input
-          className='bg-brown-500 text-white p-2 cursor-pointer font-monea text-2xl'
+          className='bg-primary text-white p-3 cursor-pointer'
           type='submit'
           value='add liquor'
         />

@@ -11,22 +11,22 @@ const Liquors = () => {
     <Spinner></Spinner>
   ) : (
     <motion.div
-      className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20'
-      initial={{ y: 200, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      className='mt-12 overflow-hidden grid md:grid-cols-2 lg:block'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {liquors.map((liquor, index) => {
         if (index > 2) {
-          index = index - 2
+          index -= 1
         }
         return (
           <motion.div
-            className='mb-52'
+            className='w-[90%] mx-auto'
             key={liquor._id}
-            initial={{ y: 200, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.3 }}
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.2 }}
             viewport={{ once: true }}
           >
             <Liquor liquor={liquor}></Liquor>
