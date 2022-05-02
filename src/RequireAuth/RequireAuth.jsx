@@ -1,6 +1,7 @@
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Navigate, useLocation } from 'react-router-dom'
 import { auth } from '../firebase/firebase.init'
+import { VerifyPopup } from '../pages'
 
 export function RequireAuth({ children }) {
   const [user, loading] = useAuthState(auth)
@@ -13,7 +14,7 @@ export function RequireAuth({ children }) {
   }
 
   if (!user?.emailVerified) {
-    return <p>email is not verified</p>
+    return <VerifyPopup></VerifyPopup>
   }
 
   return children

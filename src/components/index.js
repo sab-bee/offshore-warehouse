@@ -4,5 +4,6 @@ import Liquors from './Liquors/Liquors'
 import Header from './Header/Header'
 import Modal from './Modal/Modal'
 import Footer from './Footer/Footer'
+import Spinner from './Spinner/Spinner'
 
-export { Navbar, Login, Liquors, Header, Modal,Footer }
+export { Navbar, Login, Liquors, Header, Modal, Footer, Spinner }

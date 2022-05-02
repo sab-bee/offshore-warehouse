@@ -15,7 +15,7 @@ module.exports = {
       fontFamily: {
         magfirea: "'maghfirea' , serif",
         nevradaneue: "'nevradaneue' , serif",
-        monea: "'Monea Alegante' , serif",
+        monea: "'Monea Alegante' , sans-serif",
       },
     },
   },

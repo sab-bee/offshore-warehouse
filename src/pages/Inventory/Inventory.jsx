@@ -44,9 +44,10 @@ const Inventory = () => {
     <div className='mb-12'>
       <div className='grid grid-cols-1 lg:grid-cols-2 w-3/4 mx-auto items-center mt-12 gap-y-12 min-h-[72vh]'>
         <motion.div
-          initial={{ y: 60, opacity: 0 }}
+          className='h-[596px] w-full'
+          initial={{ y: 200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
           <img
             className='mx-auto lg:h-[550px] object-cover'
@@ -54,27 +55,25 @@ const Inventory = () => {
             alt={liquor.productName + ' banner'}
           />
         </motion.div>
-        <div className=''>
-          <motion.h2
-            className='text-2xl text-brown-900 mb-16'
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-          >
+        <motion.div
+          initial={{ y: 200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
+          <h2 className='text-2xl text-brown-900 mb-16'>
             {liquor.productName}
-          </motion.h2>
-          <motion.p
-            className='mb-6 lg:w-3/5'
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-          >
-            {liquor.detail}
-          </motion.p>
-          <p className='mb-5'>product ID : {liquor._id}</p>
-          <h2 className='text-2xl mt-12'>price : {liquor.productPrice}</h2>
-          <p className='text-brown-500 mb-12'>supplier : {liquor.supplier}</p>
+          </h2>
+          <p className='mb-6 lg:w-3/5'>{liquor.detail}</p>
           <div>
+            <p className='mb-5'>product ID : {liquor._id}</p>
+            <h2 className='text-2xl mt-12'>price : {liquor.productPrice}</h2>
+            <p className='text-brown-500 mb-12'>supplier : {liquor.supplier}</p>
+          </div>
+          <motion.div
+            initial={{ y: 60, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <button
               className='bg-brown-200 px-5 py-3 w-32 text-brown-900 font-medium'
               onClick={handleDeliver}
@@ -94,17 +93,22 @@ const Inventory = () => {
                 value='restock'
               />
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-      <div className='text-center font-medium'>
+      <motion.div
+        className='text-center font-medium'
+        initial={{ y: 1, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+      >
         <button
           className='font-medium text-brown-900 text-xl underline mt-5'
           onClick={() => navigate('/manageInventories')}
         >
           manage inventories
         </button>
-      </div>
+      </motion.div>
     </div>
   )
 }

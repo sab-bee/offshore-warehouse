@@ -2,17 +2,19 @@ import React from 'react'
 import { useLiquors } from '../../hooks/useLiquors'
 import Liquor from '../Liquor/Liquor'
 import { motion } from 'framer-motion'
+import Spinner from '../Spinner/Spinner'
 
 const Liquors = () => {
   const { liquors } = useLiquors(6)
 
-  return (
+  return liquors.length === 0 ? (
+    <Spinner></Spinner>
+  ) : (
     <motion.div
       className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20'
       initial={{ y: 200, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {liquors.map((liquor, index) => {
         if (index > 2) {
@@ -20,6 +22,7 @@ const Liquors = () => {
         }
         return (
           <motion.div
+            className='mb-52'
             key={liquor._id}
             initial={{ y: 200, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}

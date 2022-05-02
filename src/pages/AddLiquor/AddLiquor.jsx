@@ -2,31 +2,38 @@ import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../firebase/firebase.init'
+import { toast } from 'react-toastify'
 
 const AddLiquor = () => {
   const { register, handleSubmit, reset } = useForm()
+  const [user] = useAuthState(auth)
 
   const onSubmit = async (data) => {
     let { productPrice: price, quantity: quan, ...rest } = data
 
     const productPrice = parseInt(price)
     const quantity = parseInt(quan)
+    const email = user?.email
+    const newData = { ...rest, productPrice, quantity, email }
 
-    const newData = { ...rest, productPrice, quantity }
-
-    axios
-      .post('http://localhost:5000/api/liquor', newData)
-      .then((res) => console.log(res))
+    axios.post('http://localhost:5000/api/liquor', newData).then((res) => {
+      console.log(res)
+      toast.success('item added', {
+        autoClose: 1500,
+      })
+    })
     reset()
   }
   return (
     <motion.div
-      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto mt-12 rounded-lg p-12 shadow-lg'
+      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto my-12 rounded-lg p-12 shadow-lg'
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.1 }}
     >
-      <h2 className='my-5 text-3xl text-center'>add new item</h2>
+      <h2 className='my-5 text-3xl text-center font-monea'>Add new item</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='
@@ -127,9 +134,9 @@ const AddLiquor = () => {
           />
         </div>
         <input
-          className='bg-brown-500 text-white p-2 cursor-pointer'
+          className='bg-brown-500 text-white p-2 cursor-pointer font-monea text-2xl'
           type='submit'
-          value='add new liquor'
+          value='add liquor'
         />
       </form>
     </motion.div>

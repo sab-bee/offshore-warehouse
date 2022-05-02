@@ -5,6 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.init'
 import { ActiveLink } from '../ActiveLink.ActiveLink'
 import { motion } from 'framer-motion'
+import logo from '../../assets/icon/logo.svg'
+import { FaAlignJustify } from 'react-icons/fa'
+import { GrClose } from 'react-icons/gr'
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
@@ -14,26 +17,25 @@ const Navbar = () => {
   return (
     <>
       <motion.div
-        className='shadow-lg bg-accent-brown hidden md:block'
+        className='shadow-lg bg-accent-brown hidden md:block sticky top-0 z-50'
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
       >
         <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
           <div className=''>
             <ActiveLink to='/'>
               <h2 className='text-xl'>
-                <span>offshore</span>
-                <br />
-                <span>sotckroom</span>
+                <img src={logo} alt='' />
+                <p className='font-medium'>offshore</p>
               </h2>
             </ActiveLink>
           </div>
-          <div className='space-x-5'>
+          <div className='lg:space-x-16 space-x-6'>
             <ActiveLink to='/'>Home</ActiveLink>
             {user ? (
               <>
-                <ActiveLink to='/manageInventories'>Inventory</ActiveLink>
+                <ActiveLink to='/manageInventories'>Manage Inventory</ActiveLink>
                 <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                 <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
                 <button
@@ -51,7 +53,7 @@ const Navbar = () => {
           </div>
         </div>
       </motion.div>
-      <motion.div className='md:hidden bg-accent-brown shadow-lg'>
+      <motion.div className='md:hidden bg-accent-brown shadow-lg sticky top-0 z-50'>
         <div className='flex mx-auto min-h-[80px] justify-between items-center px-6'>
           <div>
             <ActiveLink to='/'>
@@ -63,16 +65,23 @@ const Navbar = () => {
             </ActiveLink>
           </div>
           <div>
-            <button onClick={() => setExpand(!expand)}>extend</button>
+            <button onClick={() => setExpand(!expand)}>
+              {expand ? <GrClose /> : <FaAlignJustify />}
+            </button>
           </div>
         </div>
         {expand && (
-          <div className='flex flex-col items-center'>
+          <motion.div
+            className='flex flex-col items-center p-6'
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          >
             <ActiveLink to='/'>Home</ActiveLink>
 
             {user ? (
               <>
-                <ActiveLink to='/manageInventories'>Inventory</ActiveLink>
+                <ActiveLink to='/manageInventories'>Manage Inventory</ActiveLink>
                 <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                 <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
                 <button
@@ -87,7 +96,7 @@ const Navbar = () => {
             ) : (
               <ActiveLink to='/user/login'>Login</ActiveLink>
             )}
-          </div>
+          </motion.div>
         )}
       </motion.div>
     </>

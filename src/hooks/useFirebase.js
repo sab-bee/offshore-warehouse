@@ -38,15 +38,47 @@ export function useFirebase() {
 
   useEffect(() => {
     if (googleUser || createUser || loginUser) {
-      const email = loginUser?.user?.email
+      const email =
+        loginUser?.user?.email ||
+        createUser?.user?.email ||
+        googleUser?.user?.email
       axios.post('http://localhost:5000/api/login', { email }).then((res) => {
-        console.log(res.data.token)
+        // console.log(res.data.token)
         localStorage.setItem('token', res.data?.token)
       })
       navigate(from, { replace: true })
     }
   }, [googleUser, from, navigate, createUser, loginUser])
 
+  useEffect(() => {
+    if (createUser) {
+      toast.success('successfuly registered', {
+        autoClose: 1500,
+      })
+    }
+  }, [createUser])
+
+  useEffect(() => {
+    if (loginError || error || createError) {
+      let errorMeassage =
+        loginError?.message || error?.message || createError?.message
+
+      errorMeassage = errorMeassage.split(' ')
+
+      toast.error(
+        errorMeassage[errorMeassage.length - 1]
+          .replace(/auth/g, '')
+          .replace(/[-/()]/g, ' '),
+        {
+          autoClose: 1500,
+        }
+      )
+    }
+  }, [loginError, error, createError])
+
+  if (loginLoading) {
+    console.log('loading')
+  }
   /**
    * sing in with google
    */
@@ -81,9 +113,6 @@ export function useFirebase() {
     }
     createUserWithEmailAndPassword(email, password)
     reset()
-    toast.success('successfuly registered', {
-      autoClose: 1500,
-    })
   }
 
   /**
@@ -99,7 +128,9 @@ export function useFirebase() {
    */
   const handleResetPassword = async (email) => {
     await sendPasswordResetEmail(email)
-    toast.success('email sent')
+    toast.success('email sent', {
+      autoClose: 1500,
+    })
   }
 
   return {
@@ -107,5 +138,7 @@ export function useFirebase() {
     handleRegisterWithEmail,
     handleLoginWithEmail,
     handleResetPassword,
+    createLoading,
+    loginLoading,
   }
 }
