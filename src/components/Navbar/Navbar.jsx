@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       <motion.div
-        className='shadow-lg bg-accent-brown hidden md:block sticky top-0 z-50'
+        className='shadow-lg bg-accent-brown hidden md:block sticky top-0 z-50 select-none'
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
@@ -25,17 +25,17 @@ const Navbar = () => {
         <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
           <div className=''>
             <ActiveLink to='/'>
-              <h2 className='text-xl'>
-                <img src={logo} alt='' />
-                <p className='font-medium'>offshore</p>
-              </h2>
+              <img src={logo} alt='' />
+              <p className='font-medium'>offshore</p>
             </ActiveLink>
           </div>
           <div className='lg:space-x-16 space-x-6'>
             <ActiveLink to='/'>Home</ActiveLink>
             {user ? (
               <>
-                <ActiveLink to='/manageInventories'>Manage Inventory</ActiveLink>
+                <ActiveLink to='/manageInventories'>
+                  Manage Inventory
+                </ActiveLink>
                 <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                 <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
                 <button
@@ -53,15 +53,11 @@ const Navbar = () => {
           </div>
         </div>
       </motion.div>
-      <motion.div className='md:hidden bg-accent-brown shadow-lg sticky top-0 z-50'>
+      <motion.div className='md:hidden bg-accent-brown shadow-lg sticky top-0 z-50 select-none'>
         <div className='flex mx-auto min-h-[80px] justify-between items-center px-6'>
           <div>
             <ActiveLink to='/'>
-              <h2 className='text-xl'>
-                <span>offshore</span>
-                <br />
-                <span>sotckroom</span>
-              </h2>
+              <img src={logo} alt='' />
             </ActiveLink>
           </div>
           <div>
@@ -81,7 +77,9 @@ const Navbar = () => {
 
             {user ? (
               <>
-                <ActiveLink to='/manageInventories'>Manage Inventory</ActiveLink>
+                <ActiveLink to='/manageInventories'>
+                  Manage Inventory
+                </ActiveLink>
                 <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                 <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
                 <button

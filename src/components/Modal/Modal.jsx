@@ -26,7 +26,7 @@ const Modal = ({ confirm, setShowModal }) => {
           placeholder='confirm'
           onChange={(e) => handleInput(e)}
         />
-        <p className='text-brown-500 text-base mt-1'>type <span className='font-semibold'>confirm</span> here</p>
+        <p className='text-brown-500 text-base mt-2'>type <span className='font-semibold'>confirm</span> here</p>
         <div className='text-center space-x-2 mt-5 absolute right-8 bottom-8'>
           <button
             className='hover:border-b-brown-500 border-b-2 border-transparent py-2 px-8 transition-colors'

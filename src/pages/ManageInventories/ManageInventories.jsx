@@ -3,57 +3,69 @@ import bin from '../../assets/icon/bin.svg'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { Modal } from '../../components'
 
 const ManageInventories = () => {
   const { liquors, setLiquors } = useLiquors()
   const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false)
+  const [_id, set_id] = useState('')
 
   const removeFromStock = async (_id) => {
-    if (!window.confirm('are you sure?')) return
+    setShowModal(true)
+    set_id(_id)
+  }
 
+  function confirm() {
     axios.delete(`http://localhost:5000/api/liquor/${_id}`).then((res) => {
       console.log(res)
       const rest = liquors.filter((liquor) => liquor._id !== _id)
       setLiquors(rest)
     })
   }
-  return (
-    <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 overflow-hidden rounded-2xl'>
-      <motion.table
-        className='w-full'
-        initial={{ y: 500, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeInOut'}}
-      >
-        <thead className='bg-brown-50'>
-          <tr>
-            <th className='p-5'>product</th>
-            <th className='p-5'>price</th>
-            <th className='p-5'>quantiry</th>
-            <th className='p-5'>remove stock</th>
-          </tr>
-        </thead>
 
-        <tbody className=''>
-          {liquors.map((liquor) => (
-            <ManageLiquor
-              key={liquor._id}
-              liquor={liquor}
-              removeFromStock={removeFromStock}
-            ></ManageLiquor>
-          ))}
-        </tbody>
-      </motion.table>
-      <motion.button
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
-        className='bg-brown-400 p-3 w-full text-white mt-5 rounded-md hover:bg-brown-500 font-monea text-2xl'
-        onClick={() => navigate('/addProduct')}
-      >
-        add new liquor
-      </motion.button>
-    </div>
+  return (
+    <>
+      {showModal && (
+        <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
+      )}
+      <div className=' bg-brown-extra-light w-full md:w-4/5 lg:w-1/2 mx-auto mt-12 p-6 overflow-hidden rounded-2xl'>
+        <motion.table
+          className='w-full'
+          initial={{ y: 500, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
+        >
+          <thead className='bg-brown-50'>
+            <tr>
+              <th className='p-5'>product</th>
+              <th className='p-5'>price</th>
+              <th className='p-5'>quantiry</th>
+              <th className='p-5'>remove stock</th>
+            </tr>
+          </thead>
+          <tbody className=''>
+            {liquors.map((liquor) => (
+              <ManageLiquor
+                key={liquor._id}
+                liquor={liquor}
+                removeFromStock={removeFromStock}
+              ></ManageLiquor>
+            ))}
+          </tbody>
+        </motion.table>
+        <motion.button
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
+          className='bg-brown-400 p-3 w-full text-white mt-5 rounded-md hover:bg-brown-500 font-monea text-2xl'
+          onClick={() => navigate('/addProduct')}
+        >
+          add new liquor
+        </motion.button>
+      </div>
+    </>
   )
 }
 
