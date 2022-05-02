@@ -14,7 +14,7 @@ const Liquor = ({ liquor }) => {
 
   const navigate = useNavigate()
   return (
-    <div className='grid lg:grid-cols-3 gap-5 lg:justify-items-center items-center bg-white rounded-xl p-8 lg:p-4 my-5 shadow-lg shadow-zinc-200 hover:bg-slate-100 hover:scale-105 transition-transform duration-300'>
+    <div className='grid lg:grid-cols-3 gap-5 lg:justify-items-center items-center bg-white rounded-xl p-8 lg:p-4 my-5 shadow-lg shadow-zinc-200 hover:bg-slate-100 hover:scale-105 transition-all duration-300'>
       <div className='mx-auto'>
         <img
           className='mx-auto h-[200px] object-cover hover:scale-110 transition-transform ease-out duration-300'

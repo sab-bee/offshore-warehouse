@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {resetForm && (
           <motion.div
             className='w-full h-screen bg-[rgba(0,0,0,0.45)] fixed top-0'
@@ -43,7 +43,7 @@ const Login = () => {
           >
             <motion.div
               key='modal'
-              className='absolute inset-0 m-auto h-64 w-[450px] rounded bg-white px-6'
+              className='absolute m-auto left-0 right-0 top-0 bottom-0 lg:right-1/2 h-64 w-[450px] rounded bg-white px-6'
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -55,6 +55,7 @@ const Login = () => {
               >
                 X
               </button>
+
               <form onSubmit={resetPass}>
                 <div className='mt-8'>
                   <label htmlFor='email'>
@@ -82,12 +83,16 @@ const Login = () => {
           <Spinner></Spinner>
         ) : (
           <motion.div
-            className='min-h-[300px] w-4/5 md:w-3/5 lg:w-4/5 xl:w-3/5 mx-auto my-6 p-12'
+            className='md:w-3/5 lg:w-4/5 xl:w-3/5 mx-auto my-6 p-12'
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             exit={{ x: -300, opacity: 0 }}
           >
+            <h2 className='text-center font-semibold text-2xl my-12'>
+              Welcome Back
+            </h2>
+
             <form
               onSubmit={handleSubmit(onSubmit)}
               className='

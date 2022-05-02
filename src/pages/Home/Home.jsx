@@ -11,7 +11,7 @@ const Home = () => {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
-        className='text-center text-4xl text-gray-700 font-semibold mt-16'
+        className='text-center text-4xl text-gray-700 font-semibold mt-40'
       >
         top inventory items
       </motion.p>

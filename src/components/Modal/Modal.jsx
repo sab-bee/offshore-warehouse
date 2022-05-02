@@ -22,7 +22,7 @@ const Modal = ({ confirm, setShowModal }) => {
     >
       <motion.div
         key='modal'
-        className='absolute inset-0 m-auto h-64 w-[500px] rounded bg-white px-6'
+        className='absolute inset-0 m-auto h-64 sm:w-[500px] rounded bg-white px-6'
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -54,7 +54,7 @@ const Modal = ({ confirm, setShowModal }) => {
             cancel
           </button>{' '}
           <button
-            className='bg-primary text-white py-2 px-8 hover:bg-brown-900 transition-colors disabled:bg-blue-200'
+            className='bg-red-500 text-white py-2 px-8 hover:bg-red-700 transition-colors disabled:bg-red-200'
             disabled={!proceed}
             onClick={() => {
               confirm()

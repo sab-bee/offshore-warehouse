@@ -32,14 +32,14 @@ const ManageInventories = () => {
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6 overflow-hidden rounded-2xl min-h-screen'>
+      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6  rounded-2xl '>
         <motion.table
           className='w-full'
           initial={{ y: 500, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          <thead className='bg-white'>
+          <thead className='bg-white '>
             <tr>
               <th className='p-5'>product</th>
               <th className='p-5'>price</th>

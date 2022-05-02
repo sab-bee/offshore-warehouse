@@ -28,7 +28,9 @@ body {
   background-color: #f0f0f5;
   /* color: white; */
 }
-
+::selection{
+  background-color: #E0EFF8;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

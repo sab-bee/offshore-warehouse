@@ -20,12 +20,14 @@ const Register = () => {
     <Spinner></Spinner>
   ) : (
     <motion.div
-      className='min-h-[300px] w-4/5 md:w-3/5 lg:w-4/5 xl:w-3/5 mx-auto my-6 p-12'
+      className='min-h-[300px] md:w-3/5 lg:w-4/5 xl:w-3/5 mx-auto my-6 p-12'
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       exit={{ x: 300, opacity: 0 }}
     >
+      <h2 className='text-center font-semibold text-2xl my-12'>Registration</h2>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='

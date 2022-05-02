@@ -42,7 +42,7 @@ const AddLiquor = () => {
         gap-7
       '
       >
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col'>
           <label htmlFor='productName'>Product name</label>
           <input
             id='productName'
@@ -54,7 +54,7 @@ const AddLiquor = () => {
           />{' '}
         </div>
 
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='productPrice'>Product price</label>
           <input
             id='productPrice'
@@ -64,12 +64,12 @@ const AddLiquor = () => {
             {...register('productPrice', {
               required: true,
               min: 4,
-              max: 90000,
+              max: 9000,
             })}
           />
         </div>
 
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='supplier'>Supplier</label>
           <input
             id='supplier'
@@ -79,7 +79,7 @@ const AddLiquor = () => {
             {...register('supplier', { required: true })}
           />
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='quantity'>Quantity</label>
           <input
             id='quantity'
@@ -89,7 +89,7 @@ const AddLiquor = () => {
             {...register('quantity', { required: true, min: 1, max: 2000 })}
           />
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='thumbnail'>Product thumbnail</label>
           <input
             id='thumbnail'
@@ -99,7 +99,7 @@ const AddLiquor = () => {
             {...register('thumbnail', { required: true })}
           />
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='banner'>Product banner</label>
           <input
             id='banner'
@@ -109,7 +109,7 @@ const AddLiquor = () => {
             {...register('banner', { required: true })}
           />
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='category'>Select category</label>
           <select
             id='category'
@@ -124,13 +124,13 @@ const AddLiquor = () => {
             <option value='whiskey'>whiskey</option>
           </select>
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col '>
           <label htmlFor='detail'>Product detail</label>
           <textarea
             id='detail'
             className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='Mayacamas Vineyards’ 2014 Cabernet Sauvignon is a graceful return to form from an iconic Napa winery.'
-            rows='6'
+            rows='4'
             type=''
             {...register('detail', { required: true, minLength: 10 })}
           />
