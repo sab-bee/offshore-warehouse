@@ -19,7 +19,7 @@ const User = () => {
           </p>
         </div>
       </div>
-      <div className='overflow-hidden'>
+      <div className='overflow-x-hidden'>
         <div className='text-4xl relative top-10 left-10 text-primary'>
           <Link to='/'>
             <AiFillHome />

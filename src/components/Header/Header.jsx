@@ -11,7 +11,7 @@ const Header = () => {
     >
       <div className='flex'>
         <img
-          className='object-cover h-[400px] md:h-auto'
+          className='object-cover h-[400px] xl:h-auto'
           src='https://i.ibb.co/G5wthVv/banner.webp'
           alt='wallpaper'
         />

@@ -20,7 +20,7 @@ const Navbar = () => {
     !paths.some((path) => pathname.includes(path)) && (
       <>
         <motion.div
-          className='shadow-lg bg-primary hidden md:block sticky top-0 z-50 select-none text-white'
+          className='shadow-lg bg-primary hidden lg:block sticky top-0 z-50 select-none text-white'
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
@@ -32,7 +32,7 @@ const Navbar = () => {
                 <p className='font-medium'>offshore</p>
               </ActiveLink>
             </div>
-            <div className='lg:space-x-16 space-x-6'>
+            <div className='lg:space-x-10 space-x-6'>
               <ActiveLink to='/'>Home</ActiveLink>
               {user ? (
                 <>
@@ -41,6 +41,7 @@ const Navbar = () => {
                   </ActiveLink>
                   <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                   <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
+                  <ActiveLink to='/blogs'>Blogs</ActiveLink>
                   <button
                     onClick={() => {
                       signOut(auth)
@@ -56,7 +57,7 @@ const Navbar = () => {
             </div>
           </div>
         </motion.div>
-        <motion.div className='md:hidden bg-primary shadow-lg sticky top-0 z-50 select-none text-white'>
+        <motion.div className='lg:hidden bg-primary shadow-lg sticky top-0 z-50 select-none text-white'>
           <div className='flex mx-auto min-h-[80px] justify-between items-center px-6'>
             <div>
               <ActiveLink to='/'>

@@ -6,6 +6,7 @@ import { Footer, Login, Navbar } from './components'
 import ScrollToTop from './hooks/ScrollToTop'
 import {
   AddLiquor,
+  Blogs,
   Home,
   Inventory,
   ManageInventories,
@@ -20,7 +21,7 @@ function App() {
   const location = useLocation()
   return (
     <ScrollToTop>
-      <div className='flex flex-col min-h-[150vh] '>
+      <div className='flex flex-col min-h-screen '>
         <Navbar></Navbar>
         <div className='App '>
           <ToastContainer
@@ -48,6 +49,7 @@ function App() {
                 <Route path='login' element={<Login />}></Route>
                 <Route path='register' element={<Register />}></Route>
               </Route>
+              <Route path='/blogs' element={<Blogs/>}></Route>
               <Route path='*' element={<NotFound />}></Route>
             </Routes>
           </AnimatePresence>

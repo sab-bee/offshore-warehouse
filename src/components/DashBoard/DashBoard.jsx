@@ -1,7 +1,9 @@
-import React from 'react'
+
 import { motion } from 'framer-motion'
 
 const DashBoard = () => {
+  const order = 216
+  const rev = 216
   return (
     <div className='mt-16'>
       <motion.h2
@@ -20,8 +22,8 @@ const DashBoard = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
           >
-            <h2>orders</h2>
-            <p className='font-semibold text-2xl'>215</p>
+            <h2>Orders</h2>
+            <p className='font-semibold text-2xl'>{order}</p>
             <p>weekly: 11000</p>
           </motion.div>
         </div>
@@ -32,8 +34,8 @@ const DashBoard = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
           >
-            <h2>revenue</h2>
-            <p className='font-semibold text-2xl'>215</p>
+            <h2>Revenue</h2>
+            <p className='font-semibold text-2xl'>{rev}</p>
             <p>weekly: 11000</p>
           </motion.div>
         </div>
@@ -44,7 +46,7 @@ const DashBoard = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
           >
-            <h2>total stock</h2>
+            <h2>Total stock</h2>
             <p className='font-semibold text-2xl'>215</p>
             <p>last week: 11000</p>
           </motion.div>
@@ -56,7 +58,7 @@ const DashBoard = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
           >
-            <h2>empty storage</h2>
+            <h2>Empty storage</h2>
             <p className='font-semibold text-2xl'>215</p>
             <p>total: 11000</p>
           </motion.div>

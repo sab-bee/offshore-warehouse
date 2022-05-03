@@ -6,6 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase/firebase.init'
 import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../components'
+import { signOut } from 'firebase/auth'
 
 const MyLiquors = () => {
   const [liquors, setLiquors] = useState([])
@@ -29,7 +30,13 @@ const MyLiquors = () => {
         setFetched(true)
         setLiquors(res.data)
       })
-  }, [user])
+      .catch((error) => {
+        if (error.response.status === 403 || 401) {
+          signOut(auth)
+          navigate('/user/login')
+        }
+      })
+  }, [user, navigate])
 
   const removeFromMyList = (_id) => {
     setShowModal(true)
@@ -51,7 +58,7 @@ const MyLiquors = () => {
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className='w-full md:w-4/5 lg:w-1/2 mx-auto bg-gray-50 p-6 rounded-2xl my-12'>
+      <div className='w-full md:w-4/5 lg:w-1/2 mx-auto bg-gray-50 p-6 rounded-2xl my-12 min-h-screen'>
         <div className='grid grid-cols-4 justify-items-center'>
           <p className='font-medium'>product</p>
           <p className='font-medium'>price</p>

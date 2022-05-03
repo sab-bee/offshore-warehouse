@@ -12,8 +12,8 @@ const Footer = () => {
   }
   return (
     !paths.some((path) => pathname.includes(path)) && (
-      <div className='mt-auto'>
-        <div className='min-h-[300px] bg-primary grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 text-brown-50 py-8 px-12 items-center'>
+      <div className='mt-auto bg-primary '>
+        <div className='min-h-[300px] w-4/5 mx-auto grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 text-brown-50 py-8 items-center '>
           <div className='text-center sm:text-left'>
             <h2 className='mb-4'>our policy</h2>
             <ul className='text-sky-white space-y-3'>
@@ -45,7 +45,7 @@ const Footer = () => {
             <h2 className='mb-7'>get updates</h2>
             <form className='flex flex-col space-y-3' onSubmit={handleSubmit}>
               <input
-                className='p-3 text-brown-500 outline-none '
+                className='p-3 outline-none '
                 type='email'
                 name='email'
                 placeholder='enter email address'

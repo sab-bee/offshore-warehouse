@@ -32,7 +32,7 @@ const ManageInventories = () => {
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6  rounded-2xl '>
+      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6  rounded-2xl min-h-screen'>
         <motion.table
           className='w-full'
           initial={{ y: 500, opacity: 0 }}

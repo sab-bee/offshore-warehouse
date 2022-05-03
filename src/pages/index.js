@@ -7,7 +7,7 @@ import NotFound from './NotFound/NotFound'
 import User from './User/User'
 import Register from '../components/Register/Register'
 import VerifyPopup from '../components/VerifyPopup/VerifyPopup'
-
+import Blogs from './Blogs/Blogs'
 export {
   Home,
   ManageInventories,
@@ -17,5 +17,6 @@ export {
   NotFound,
   User,
   Register,
-  VerifyPopup
+  VerifyPopup,
+  Blogs,
 }
