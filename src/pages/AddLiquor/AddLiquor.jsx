@@ -18,12 +18,14 @@ const AddLiquor = () => {
     const email = user?.email
     const newData = { ...rest, productPrice, quantity, email }
 
-    axios.post('http://localhost:5000/api/liquor', newData).then((res) => {
-      console.log(res)
-      toast.success('item added', {
-        autoClose: 1500,
+    axios
+      .post('https://pacific-oasis-60084.herokuapp.com/api/liquor', newData)
+      .then((res) => {
+        console.log(res)
+        toast.success('item added', {
+          autoClose: 1500,
+        })
       })
-    })
     reset()
   }
   return (

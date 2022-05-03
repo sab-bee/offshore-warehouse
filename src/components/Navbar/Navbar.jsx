@@ -5,9 +5,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.init'
 import { ActiveLink } from '../ActiveLink/ActiveLink'
 import { motion } from 'framer-motion'
-import logo from '../../assets/icon/logo.svg'
-import { FaAlignJustify } from 'react-icons/fa'
-import { GrClose } from 'react-icons/gr'
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
@@ -20,7 +17,7 @@ const Navbar = () => {
     !paths.some((path) => pathname.includes(path)) && (
       <>
         <motion.div
-          className='shadow-lg bg-primary hidden lg:block sticky top-0 z-50 select-none text-white'
+          className=' bg-slate-50 hidden lg:block sticky top-0 z-50 select-none text-slate-700 border-b border-gray-300'
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
@@ -28,11 +25,23 @@ const Navbar = () => {
           <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
             <div className=''>
               <ActiveLink to='/'>
-                <img src={logo} alt='' />
+                <svg
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M2 21V7L12 3L22 7V21H16V13H8V21H2ZM9 21V19H11V21H9ZM11 18V16H13V18H11ZM13 21V19H15V21H13Z'
+                    fill='#0011ff'
+                  />
+                </svg>
+
                 <p className='font-medium'>offshore</p>
               </ActiveLink>
             </div>
-            <div className='lg:space-x-10 space-x-6'>
+            <div className='lg:space-x-10 space-x-6 font-medium'>
               <ActiveLink to='/'>Home</ActiveLink>
               {user ? (
                 <>
@@ -43,6 +52,7 @@ const Navbar = () => {
                   <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
                   <ActiveLink to='/blogs'>Blogs</ActiveLink>
                   <button
+                  className='bg-indigo-600 p-2 text-white rounded-md'
                     onClick={() => {
                       signOut(auth)
                       navigate('/user/login')
@@ -61,12 +71,136 @@ const Navbar = () => {
           <div className='flex mx-auto min-h-[80px] justify-between items-center px-6'>
             <div>
               <ActiveLink to='/'>
-                <img src={logo} alt='' />
+                <svg
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M2 21V7L12 3L22 7V21H16V13H8V21H2ZM9 21V19H11V21H9ZM11 18V16H13V18H11ZM13 21V19H15V21H13Z'
+                    fill='white'
+                  />
+                </svg>
               </ActiveLink>
             </div>
             <div>
               <button onClick={() => setExpand(!expand)}>
-                {expand ? <GrClose /> : <FaAlignJustify />}
+                {expand ? (
+                  <svg
+                    width='19'
+                    height='23'
+                    viewBox='0 0 19 23'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <rect
+                      className='transition-all'
+                      x='1.69702'
+                      y='5.23187'
+                      width='22.4'
+                      height='2.4'
+                      rx='1'
+                      transform='rotate(45 1.69702 5.23187)'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='1.69702'
+                      y='5.23187'
+                      width='22.4'
+                      height='2.4'
+                      rx='1'
+                      transform='rotate(45 1.69702 5.23187)'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='18.3047'
+                      y='1.69705'
+                      width='22.4'
+                      height='2.4'
+                      rx='1'
+                      transform='rotate(135 18.3047 1.69705)'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='18.3047'
+                      y='1.69705'
+                      width='22.4'
+                      height='2.4'
+                      rx='1'
+                      transform='rotate(135 18.3047 1.69705)'
+                      fill='white'
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className='group'
+                    width='28'
+                    height='16'
+                    viewBox='0 0 28 16'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <rect
+                      className='transition-all'
+                      x='0.800049'
+                      y='0.399994'
+                      width='15.2'
+                      height='2.4'
+                      rx='1'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='0.800049'
+                      y='0.399994'
+                      width='15.2'
+                      height='2.4'
+                      rx='1'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='0.800049'
+                      y='6.79999'
+                      width='27.2'
+                      height='2.4'
+                      rx='1'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='0.800049'
+                      y='6.79999'
+                      width='27.2'
+                      height='2.4'
+                      rx='1'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='7.800049'
+                      y='13.2'
+                      width='18.2'
+                      height='2.4'
+                      rx='1'
+                      fill='white'
+                    />
+                    <rect
+                      className='transition-all'
+                      x='7.800049'
+                      y='13.2'
+                      width='18.2'
+                      height='2.4'
+                      rx='1'
+                      fill='white'
+                    />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
@@ -107,6 +241,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-//https://i.ibb.co/PY6Q03X/Odd-Bins.png
-// https://i.ibb.co/17MBSzF/Odd-Bins-banner.png

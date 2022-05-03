@@ -42,10 +42,12 @@ export function useFirebase() {
         loginUser?.user?.email ||
         createUser?.user?.email ||
         googleUser?.user?.email
-      axios.post('http://localhost:5000/api/login', { email }).then((res) => {
-        // console.log(res.data.token)
-        localStorage.setItem('token', res.data?.token)
-      })
+      axios
+        .post('https://pacific-oasis-60084.herokuapp.com/api/login', { email })
+        .then((res) => {
+          // console.log(res.data.token)
+          localStorage.setItem('token', res.data?.token)
+        })
       navigate(from, { replace: true })
     }
   }, [googleUser, from, navigate, createUser, loginUser])

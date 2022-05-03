@@ -22,13 +22,13 @@ const Modal = ({ confirm, setShowModal }) => {
     >
       <motion.div
         key='modal'
-        className='absolute inset-0 m-auto h-64 sm:w-[500px] rounded bg-white px-6'
+        className='absolute inset-0 m-auto h-64 sm:w-[500px] rounded-2xl bg-white px-6'
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
         exit={{ scale: 0.3, opacity: 0 }}
       >
-        <p className='font-semibold text-gray-600 mt-5 text-xl select-none'>
+        <p className='font-semibold text-gray-800 mt-5 text-xl select-none'>
           remove item
         </p>
         <p className='mt-4 text-gray-600'>

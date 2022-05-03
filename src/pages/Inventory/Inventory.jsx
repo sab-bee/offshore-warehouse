@@ -11,10 +11,12 @@ const Inventory = () => {
   const [liquor, setLiquor] = useState({})
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/liquor/${id}`).then((res) => {
-      setLiquor(res.data)
-      localStorage.setItem('quantity', liquor.quantity)
-    })
+    axios
+      .get(`https://pacific-oasis-60084.herokuapp.com/api/liquor/${id}`)
+      .then((res) => {
+        setLiquor(res.data)
+        localStorage.setItem('quantity', liquor.quantity)
+      })
   }, [id, liquor.quantity])
 
   const onSubmit = (data) => {
@@ -33,7 +35,9 @@ const Inventory = () => {
 
   const updateAPI = (quantity) => {
     axios
-      .put(`http://localhost:5000/api/liquor/${id}`, { quantity })
+      .put(`https://pacific-oasis-60084.herokuapp.com/api/liquor/${id}`, {
+        quantity,
+      })
       .then((res) => {
         console.log(res.data)
         reset()

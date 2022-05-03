@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase/firebase.init'
 import { useNavigate } from 'react-router-dom'
-import { Modal } from '../../components'
+import { Modal, Spinner } from '../../components'
 import { signOut } from 'firebase/auth'
 
 const MyLiquors = () => {
@@ -18,7 +18,7 @@ const MyLiquors = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/my_liquors', {
+      .get('https://pacific-oasis-60084.herokuapp.com/api/my_liquors', {
         params: {
           email: user?.email,
         },
@@ -44,14 +44,18 @@ const MyLiquors = () => {
   }
 
   function confirm() {
-    axios.delete(`http://localhost:5000/api/liquor/${_id}`).then((res) => {
-      console.log(res)
-      const rest = liquors.filter((liquor) => liquor._id !== _id)
-      setLiquors(rest)
-    })
+    axios
+      .delete(`https://pacific-oasis-60084.herokuapp.com/api/liquor/${_id}`)
+      .then((res) => {
+        console.log(res)
+        const rest = liquors.filter((liquor) => liquor._id !== _id)
+        setLiquors(rest)
+      })
   }
 
-  return (
+  return liquors.length === 0 ? (
+    <Spinner></Spinner>
+  ) : (
     <>
       <AnimatePresence>
         {showModal && (

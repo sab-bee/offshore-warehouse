@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { Modal } from '../../components'
+import { Modal, Spinner } from '../../components'
 
 const ManageInventories = () => {
   const { liquors, setLiquors } = useLiquors()
@@ -12,32 +12,35 @@ const ManageInventories = () => {
   const [showModal, setShowModal] = useState(false)
   const [_id, set_id] = useState('')
 
+
   const removeFromStock = async (_id) => {
     setShowModal(true)
     set_id(_id)
   }
 
   function confirm() {
-    axios.delete(`http://localhost:5000/api/liquor/${_id}`).then((res) => {
-      console.log(res)
-      const rest = liquors.filter((liquor) => liquor._id !== _id)
-      setLiquors(rest)
-    })
+    axios
+      .delete(`https://pacific-oasis-60084.herokuapp.com/api/liquor/${_id}`)
+      .then((res) => {
+        console.log(res)
+        const rest = liquors.filter((liquor) => liquor._id !== _id)
+        setLiquors(rest)
+      })
   }
 
-  return (
+  return liquors.length === 0 ? <Spinner></Spinner> : (
     <>
       <AnimatePresence>
         {showModal && (
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6  rounded-2xl min-h-screen'>
+      <div className=' bg-white w-full md:w-4/5 lg:w-1/2 mx-auto my-12 p-6 rounded-2xl min-h-screen flex flex-col'>
         <motion.table
           className='w-full'
           initial={{ y: 500, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          transition={{ duration: 0.8, ease: 'easeInOut'}}
         >
           <thead className='bg-white '>
             <tr>
@@ -61,7 +64,7 @@ const ManageInventories = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
-          className='bg-primary p-3 w-full text-white mt-5 rounded-md hover:bg-blue-600'
+          className='bg-primary p-3 w-full text-white rounded-md hover:bg-blue-600 mt-auto'
           onClick={() => navigate('/addProduct')}
         >
           add new liquor
