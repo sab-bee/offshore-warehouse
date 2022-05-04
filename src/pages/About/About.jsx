@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './About.css'
 import { motion } from 'framer-motion'
 
 const About = () => {
+  const [arrange, setArrange] = useState(false)
   return (
     <>
       <div id='about-bg' className='min-h-screen w-full select-none'>
@@ -10,9 +11,23 @@ const About = () => {
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, ease: 'easeOut' ,delay:.2}}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
           >
-            <div className='lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 -rotate-2 -skew-x-2 items-center'>
+            <div className='w-3/5 mx-auto'>
+              <button
+                className='bg-primary text-white p-4'
+                onClick={() => setArrange(!arrange)}
+              >
+                arrange
+              </button>
+            </div>
+            <div
+              className={
+                !arrange
+                  ? `lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 -rotate-2 -skew-x-2 items-center transition-all`
+                  : `lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+              }
+            >
               <div className=''>
                 <svg
                   className='w-12 mx-auto hidden lg:block h-fit'
@@ -64,7 +79,13 @@ const About = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.4 }}
           >
-            <div className='lg:grid grid-cols-4 w-3/5 mx-auto gap-8 mt-12 bg-white p-8 rotate-2 skew-x-2 items-center'>
+            <div
+              className={
+                !arrange
+                  ? `mt-4 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 rotate-2 skew-x-2 items-center transition-all`
+                  : `mt-0 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+              }
+            >
               <div className=''>
                 <svg
                   className='w-10 mx-auto hidden lg:block h-fit'
@@ -94,7 +115,13 @@ const About = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.6 }}
           >
-            <div className='lg:grid grid-cols-4 w-3/5 mx-auto gap-8 mt-12 bg-white p-8 -rotate-3 -skew-x-2 items-center'>
+            <div
+              className={
+                !arrange
+                  ? `mt-4 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 -rotate-3 -skew-x-2 items-center transition-all`
+                  : `mt-0 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+              }
+            >
               <div className=''>
                 <svg
                   className='w-12 mx-auto h-fit lg:block hidden'
@@ -125,7 +152,13 @@ const About = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
           >
-            <div className='lg:grid grid-cols-4 w-3/5 mx-auto gap-8 mt-12 bg-white p-8 -rotate-3 -skew-x-2 items-center'>
+            <div
+              className={
+                !arrange
+                  ? `mt-4 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 rotate-3 skew-x-2 items-center transition-all`
+                  : `mt-0 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+              }
+            >
               <div className=''>
                 <svg
                   className='w-12 mx-auto h-fit lg:block hidden'
