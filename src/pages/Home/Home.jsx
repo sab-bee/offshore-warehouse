@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashBoard, Header, Liquors } from '../../components'
+import { DashBoard, Header, Liquors, Statistics } from '../../components'
 import { motion } from 'framer-motion'
 
 const Home = () => {
@@ -16,6 +16,7 @@ const Home = () => {
         top inventory items
       </motion.p>
       <Liquors></Liquors>
+      <Statistics></Statistics>
     </div>
   )
 }

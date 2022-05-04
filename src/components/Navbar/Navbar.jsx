@@ -22,7 +22,7 @@ const Navbar = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
         >
-          <div className='flex w-4/5 h-20 mx-auto justify-between items-center'>
+          <div className='flex w-[90%] xl:w-4/5 h-20 mx-auto justify-between items-center'>
             <div className=''>
               <ActiveLink to='/'>
                 <svg
@@ -41,8 +41,10 @@ const Navbar = () => {
                 <p className='font-medium'>offshore</p>
               </ActiveLink>
             </div>
-            <div className='lg:space-x-10 space-x-6 font-medium'>
+            <div className='lg:space-x-10 font-medium'>
               <ActiveLink to='/'>Home</ActiveLink>
+              <ActiveLink to='/about'>About</ActiveLink>
+              <ActiveLink to='/blogs'>Blogs</ActiveLink>
               {user ? (
                 <>
                   <ActiveLink to='/manageInventories'>
@@ -50,9 +52,9 @@ const Navbar = () => {
                   </ActiveLink>
                   <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                   <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
-                  <ActiveLink to='/blogs'>Blogs</ActiveLink>
+
                   <button
-                  className='bg-indigo-600 p-2 text-white rounded-md'
+                    className='bg-indigo-600 p-2 text-white rounded-md'
                     onClick={() => {
                       signOut(auth)
                       navigate('/user/login')
@@ -212,6 +214,8 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: 'easeOut' }}
             >
               <ActiveLink to='/'>Home</ActiveLink>
+              <ActiveLink to='/blogs'>Blogs</ActiveLink>
+              <ActiveLink to='/about'>About</ActiveLink>
 
               {user ? (
                 <>
@@ -220,6 +224,7 @@ const Navbar = () => {
                   </ActiveLink>
                   <ActiveLink to='/addProduct'>Add Liquor</ActiveLink>
                   <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
+
                   <button
                     onClick={() => {
                       signOut(auth)

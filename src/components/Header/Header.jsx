@@ -4,10 +4,10 @@ import './Header.css'
 const Header = () => {
   return (
     <motion.div className='w-ful xl:h-[90vh] grid items-center'>
-      <div className='flex flex-col lg:flex-row justify-center items-center gap-x-12'>
+      <div className='flex flex-col lg:flex-row justify-items-center items-center gap-x-12'>
         <div className='overflow-hidden lg:w-1/2 my-12 lg:mt-0'>
           <motion.h2
-            className='font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-800'
+            className='font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-800 text-center md:text-left'
             initial={{ y: 200, opacity: 1 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
@@ -16,7 +16,7 @@ const Header = () => {
           </motion.h2>
         </div>
         <motion.svg
-          initial={{ scale: .5, opacity: 0 }}
+          initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
           className='w-4/5 lg:w-1/2 h-fit xl:h-max'

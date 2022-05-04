@@ -11,7 +11,7 @@ const Liquors = () => {
     <Spinner></Spinner>
   ) : (
     <motion.div
-      className='mt-12 overflow-hidden grid md:grid-cols-2 lg:block'
+      className='mt-12 overflow-hidden'
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}

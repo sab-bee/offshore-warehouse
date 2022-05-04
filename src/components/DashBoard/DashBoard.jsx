@@ -12,7 +12,7 @@ const DashBoard = () => {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        // onViewportEnter={{}}
+
       >
         daily dashboard
       </motion.h2>
@@ -38,7 +38,7 @@ const DashBoard = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <h2>Revenue</h2>
+            <h2>Shipped</h2>
             <p className='font-semibold text-2xl'>{rev}</p>
             <p>weekly: 11000</p>
           </motion.div>

@@ -39,7 +39,7 @@
   }
 }
 #car {
-  animation: car 0.5s ease-in-out infinite alternate;
+  animation: car 0.25s ease-in-out infinite alternate;
 }
 
 #box {
@@ -52,7 +52,7 @@
 }
 
 #person1_r_hand {
-  animation: hand 1s ease-in-out infinite alternate;
+  animation: hand .6s ease-in-out infinite alternate;
   transform-origin: top;
   transform-box: fill-box;
 }
@@ -68,8 +68,7 @@
   transform-box: fill-box;
 }
 #person2_r_hand {
-  /* animation: move 1s ease-in-out infinite alternate; */
-  animation: tilt 1s ease-in-out infinite alternate;
+  animation: tilt .5s ease-in-out infinite alternate;
   transform-origin: right;
   transform-box: fill-box;
 }

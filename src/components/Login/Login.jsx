@@ -89,7 +89,7 @@ const Login = () => {
             transition={{ duration: 0.2, ease: 'easeOut' }}
             exit={{ x: -300, opacity: 0 }}
           >
-            <h2 className='text-center font-semibold text-2xl my-12'>
+            <h2 className='text-center font-semibold text-2xl my-5 md:my-12'>
               Welcome Back
             </h2>
 

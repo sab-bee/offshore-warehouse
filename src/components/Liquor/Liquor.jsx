@@ -27,9 +27,7 @@ const Liquor = ({ liquor }) => {
         <div className=''>
           <div>
             <h2 className='text-xl font-medium mb-5 '>{name}</h2>
-            <p className='min-h-[100px]'>
-              {detail.length > 200 ? detail.slice(0, 200) + ' ...' : detail}
-            </p>
+            <p className='min-h-[100px]'>{detail}</p>
           </div>
         </div>
       </div>

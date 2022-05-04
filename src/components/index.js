@@ -5,7 +5,7 @@ import Header from './Header/Header'
 import Modal from './Modal/Modal'
 import Footer from './Footer/Footer'
 import Spinner from './Spinner/Spinner'
-import Achievements from './Achievements/Achievements'
+import Statistics from './Statistics/Statistics'
 import DashBoard from './DashBoard/DashBoard'
 
 export {
@@ -16,6 +16,6 @@ export {
   Modal,
   Footer,
   Spinner,
-  Achievements,
+  Statistics,
   DashBoard,
 }
