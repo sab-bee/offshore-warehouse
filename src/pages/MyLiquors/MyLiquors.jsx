@@ -15,8 +15,10 @@ const MyLiquors = () => {
   const [fetched, setFetched] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [_id, set_id] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     axios
       .get('https://pacific-oasis-60084.herokuapp.com/api/my_liquors', {
         params: {
@@ -27,6 +29,8 @@ const MyLiquors = () => {
         },
       })
       .then((res) => {
+        console.log(res)
+        setLoading(false)
         setFetched(true)
         setLiquors(res.data)
       })
@@ -53,9 +57,7 @@ const MyLiquors = () => {
       })
   }
 
-  return liquors.length === 0 ? (
-    <Spinner></Spinner>
-  ) : (
+  return loading ? <Spinner></Spinner>:(
     <>
       <AnimatePresence>
         {showModal && (

@@ -7,11 +7,10 @@ import { useState } from 'react'
 import { Modal, Spinner } from '../../components'
 
 const ManageInventories = () => {
-  const { liquors, setLiquors } = useLiquors()
+  const { liquors, setLiquors, loading } = useLiquors()
   const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
   const [_id, set_id] = useState('')
-
 
   const removeFromStock = async (_id) => {
     setShowModal(true)
@@ -28,7 +27,9 @@ const ManageInventories = () => {
       })
   }
 
-  return liquors.length === 0 ? <Spinner></Spinner> : (
+  return loading ? (
+    <Spinner></Spinner>
+  ) : (
     <>
       <AnimatePresence>
         {showModal && (
@@ -40,7 +41,7 @@ const ManageInventories = () => {
           className='w-full'
           initial={{ y: 500, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeInOut'}}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           <thead className='bg-white '>
             <tr>
