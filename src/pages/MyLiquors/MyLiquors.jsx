@@ -75,7 +75,7 @@ const MyLiquors = () => {
         {liquors.length === 0 && fetched ? (
           <div className='grid justify-items-center gap-y-5'>
             <p className='mt-5 font-semibold text-red-400'>
-              this user haven't added any item yet
+              no item found under this user account
             </p>
             <button
               className='bg-primary text-white p-2 rounded'

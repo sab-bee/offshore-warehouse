@@ -27,7 +27,7 @@ function App() {
         <div className='App '>
           <ToastContainer
             transition={Zoom}
-            position='bottom-center'
+            position='bottom-right'
           ></ToastContainer>
           <AnimatePresence exitBeforeEnter>
             <Routes key={location.pathname} location={location}>

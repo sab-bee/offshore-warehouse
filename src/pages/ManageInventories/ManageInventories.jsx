@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { Modal, Spinner } from '../../components'
+import { toast } from 'react-toastify'
 
 const ManageInventories = () => {
   const { liquors, setLiquors, loading } = useLiquors()
@@ -24,6 +25,9 @@ const ManageInventories = () => {
         console.log(res)
         const rest = liquors.filter((liquor) => liquor._id !== _id)
         setLiquors(rest)
+        toast.success('liquor deleted', {
+          autoClose: 1500,
+        })
       })
   }
 
@@ -65,7 +69,7 @@ const ManageInventories = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
-          className='bg-primary p-3 w-full text-white rounded-md hover:bg-blue-600 mt-auto'
+          className='bg-primary p-3 w-full text-white rounded-md hover:bg-indigo-700 mt-auto'
           onClick={() => navigate('/addProduct')}
         >
           add new liquor
