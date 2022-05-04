@@ -49,7 +49,7 @@ const AddLiquor = () => {
           <input
             id='productName'
             className='
-            bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            bg-white p-3  border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='Mayacamas Vineyards'
             type='text'
             {...register('productName', { required: true, maxLength: 100 })}
@@ -60,7 +60,7 @@ const AddLiquor = () => {
           <label htmlFor='productPrice'>Product price</label>
           <input
             id='productPrice'
-            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            className='bg-white p-3  border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='50'
             type='number'
             {...register('productPrice', {
@@ -75,7 +75,7 @@ const AddLiquor = () => {
           <label htmlFor='supplier'>Supplier</label>
           <input
             id='supplier'
-            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            className='bg-white p-3  border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='top liquor'
             type='text'
             {...register('supplier', { required: true })}
@@ -85,7 +85,7 @@ const AddLiquor = () => {
           <label htmlFor='quantity'>Quantity</label>
           <input
             id='quantity'
-            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            className='bg-white p-3  border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='16'
             type='number'
             {...register('quantity', { required: true, min: 1, max: 2000 })}
@@ -95,7 +95,7 @@ const AddLiquor = () => {
           <label htmlFor='thumbnail'>Product thumbnail</label>
           <input
             id='thumbnail'
-            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            className='bg-white p-3  border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='https://liquor.png'
             type='text'
             {...register('thumbnail', { required: true })}
@@ -105,7 +105,7 @@ const AddLiquor = () => {
           <label htmlFor='banner'>Product banner</label>
           <input
             id='banner'
-            className='bg-white p-3 text-blue-500 border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
+            className='bg-white p-3  border-b-2 border-gray-300 focus:border-b-2 transition-colors focus:border-primary outline-none'
             placeholder='https://liquor_banner.png'
             type='text'
             {...register('banner', { required: true })}

@@ -11,7 +11,7 @@ module.exports = {
         'brown-900': '#3E2723',
         'accent-light': '#F5F2ED',
         'accent-brown': '#E0D8D3',
-        primary: '#304FFE',
+        primary: '#4f46e5',
         'sky-white': '#E0EFF8',
       },
       fontFamily: {
@@ -19,6 +19,7 @@ module.exports = {
         nevradaneue: "'nevradaneue' , serif",
         monea: "'Monea Alegante' , sans-serif",
       },
+      
     },
   },
   plugins: [],

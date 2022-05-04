@@ -80,14 +80,14 @@ const Register = () => {
           />{' '}
         </div>
         <input
-          className='bg-primary text-white p-3 cursor-pointer hover:bg-blue-600 rounded-md'
+          className='bg-primary text-white p-3 cursor-pointer hover:bg-indigo-700 rounded-md'
           type='submit'
           value='register'
         />
       </form>
       <div>
         <p
-          className='underline mt-4 cursor-pointer w-fit mx-auto text-primary'
+          className='underline mt-4 cursor-pointer w-fit mx-auto text-primary select-none'
           onClick={() => navigate('/user/login')}
         >
           already have an account?

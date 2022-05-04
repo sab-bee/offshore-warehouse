@@ -1,0 +1,93 @@
+@keyframes tilt {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hand {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes lift {
+  0% {
+    transform: translate(0, 10%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes car {
+  0% {
+    transform: translate(0, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes move {
+  0% {
+    transform: translateX(6px);
+  }
+  100% {
+  }
+}
+#car {
+  animation: car 0.5s ease-in-out infinite alternate;
+}
+
+#box {
+  animation: lift 2s ease-in-out infinite alternate;
+}
+#person1_head {
+  animation: tilt 1.5s ease-in-out infinite alternate;
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+
+#person1_r_hand {
+  animation: hand 1s ease-in-out infinite alternate;
+  transform-origin: top;
+  transform-box: fill-box;
+}
+
+#person2_head {
+  animation: tilt 1s ease-in-out infinite alternate;
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+#person2_palm {
+  animation: tilt 1s ease-in-out infinite alternate;
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+#person2_r_hand {
+  /* animation: move 1s ease-in-out infinite alternate; */
+  animation: tilt 1s ease-in-out infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+}
+
+#person3_head {
+  animation: tilt 1s ease-in-out infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#person3_l_hand {
+  animation: tilt 1s ease-in-out infinite alternate;
+  transform-origin: top;
+  transform-box: fill-box;
+}
+
+#person3_r_hand {
+  animation: tilt 0.4s ease-in-out infinite alternate;
+  transform-origin: right;
+  transform-box: fill-box;
+}

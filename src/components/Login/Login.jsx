@@ -57,7 +57,7 @@ const Login = () => {
               </button>
 
               <form onSubmit={resetPass}>
-                <div className='mt-8'>
+                <div className='mt-12'>
                   <label htmlFor='email'>
                     <span className='font-medium'>Recovery email</span>
                   </label>
@@ -124,13 +124,13 @@ const Login = () => {
                 />{' '}
               </div>
               <p
-                className='w-fit ml-auto cursor-pointer text-primary underline'
+                className='w-fit ml-auto cursor-pointer text-primary underline select-none'
                 onClick={() => setResetForm(true)}
               >
                 forgot password
               </p>
               <input
-                className='bg-primary rounded-md text-white p-3 cursor-pointer hover:bg-blue-600'
+                className='bg-primary rounded-md text-white p-3 cursor-pointer hover:bg-indigo-700'
                 type='submit'
                 value='login'
               />
@@ -150,7 +150,7 @@ const Login = () => {
                 Sign In With Google
               </button>
               <p
-                className='underline text-primary mt-4 cursor-pointer w-fit mx-auto'
+                className='underline text-primary mt-4 cursor-pointer w-fit mx-auto select-none'
                 onClick={() => navigate('/user/register')}
               >
                 don't have account?

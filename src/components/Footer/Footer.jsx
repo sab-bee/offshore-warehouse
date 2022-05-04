@@ -13,9 +13,9 @@ const Footer = () => {
   return (
     !paths.some((path) => pathname.includes(path)) && (
       <div className='mt-auto bg-primary '>
-        <div className='min-h-[300px] w-4/5 mx-auto grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 text-brown-50 py-8 items-center '>
+        <div className='min-h-[300px] w-4/5 mx-auto grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 py-8 items-center '>
           <div className='text-center sm:text-left'>
-            <h2 className='mb-4'>our policy</h2>
+            <h2 className='mb-4 text-white'>our policy</h2>
             <ul className='text-sky-white space-y-3'>
               <li>quality product</li>
               <li>no damaged product</li>
@@ -24,7 +24,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='text-center sm:text-left'>
-            <h2 className='mb-4'>our partners</h2>
+            <h2 className='mb-4 text-white'>our partners</h2>
             <ul className='text-sky-white space-y-3'>
               <li>henry liquor</li>
               <li>surveillance cctv</li>
@@ -33,7 +33,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='text-center sm:text-left'>
-            <h2 className='mb-4'>security</h2>
+            <h2 className='mb-4 text-white'>security</h2>
             <ul className='text-sky-white space-y-3'>
               <li>managed by professionals</li>
               <li>24hr cctv</li>
@@ -42,7 +42,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='text-center sm:text-left'>
-            <h2 className='mb-7'>get updates</h2>
+            <h2 className='mb-7 text-white'>get updates</h2>
             <form className='flex flex-col space-y-3' onSubmit={handleSubmit}>
               <input
                 className='p-3 outline-none '
@@ -51,7 +51,7 @@ const Footer = () => {
                 placeholder='enter email address'
               />
               <input
-                className='border border-white p-3 cursor-pointer'
+                className='border border-white text-white p-3 cursor-pointer'
                 type='submit'
                 value='submit'
               />
