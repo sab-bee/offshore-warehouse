@@ -8,6 +8,7 @@ import User from './User/User'
 import Register from '../components/Register/Register'
 import VerifyPopup from '../components/VerifyPopup/VerifyPopup'
 import Blogs from './Blogs/Blogs'
+import About from './About/About'
 export {
   Home,
   ManageInventories,
@@ -19,4 +20,5 @@ export {
   Register,
   VerifyPopup,
   Blogs,
+  About
 }

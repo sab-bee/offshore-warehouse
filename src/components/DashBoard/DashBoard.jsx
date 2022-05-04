@@ -17,7 +17,7 @@ const DashBoard = () => {
         daily dashboard
       </motion.h2>
       <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12'>
-        <div className='hover:scale-105 transition-transform'>
+        <div className='hover:translate-y-4 transition-transform'>
           <motion.div
             className=' h-36 rounded-lg p-8 bg-blue-200 transition-colors text-blue-900'
             initial={{ scale: 0, opacity: 0 }}
@@ -30,7 +30,7 @@ const DashBoard = () => {
             <p>weekly: 11000</p>
           </motion.div>
         </div>
-        <div className='hover:scale-105 transition-transform'>
+        <div className='hover:translate-y-4 transition-transform'>
           <motion.div
             className=' h-36 rounded-lg p-8 bg-red-200 transition-colors text-red-900'
             initial={{ scale: 0, opacity: 0 }}
@@ -43,7 +43,7 @@ const DashBoard = () => {
             <p>weekly: 11000</p>
           </motion.div>
         </div>
-        <div className='hover:scale-105 transition-transform'>
+        <div className='hover:translate-y-4 transition-transform'>
           <motion.div
             className='h-36 rounded-lg p-8 bg-green-200 transition-colors text-green-900'
             initial={{ scale: 0, opacity: 0 }}
@@ -56,7 +56,7 @@ const DashBoard = () => {
             <p>last week: 11000</p>
           </motion.div>
         </div>
-        <div className='hover:scale-105 transition-transform'>
+        <div className='hover:translate-y-4 transition-transform'>
           <motion.div
             className='h-36 rounded-lg p-8 bg-orange-200 transition-colors text-orange-900'
             initial={{ scale: 0, opacity: 0 }}
