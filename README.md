@@ -14,4 +14,4 @@
 
 - ### authentication related features are, jwt has included in myliquor/item section. if user's jwt is not verified he will be signed out from myliquor route.
 
-- ### few other sections are included like blogs, dashbord.
+- ### few other sections are included like blogs, dashbord , yearly statistics and about page.
