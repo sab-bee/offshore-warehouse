@@ -7,25 +7,25 @@ const About = () => {
   return (
     <>
       <div id='about-bg' className='min-h-screen w-full select-none'>
-        <div className='bg-black bg-opacity-60 py-20'>
+        <div className='bg-black bg-opacity-60 min-h-screen p-14'>
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
           >
-            <div className='w-3/5 mx-auto'>
+            <div className='lg:w-3/5 mx-auto'>
               <button
-                className='bg-primary text-white p-4'
+                className='bg-primary text-white p-4 rounded'
                 onClick={() => setArrange(!arrange)}
               >
-                arrange
+                {arrange ? 'unorganize' : 'organize'}
               </button>
             </div>
             <div
               className={
                 !arrange
-                  ? `lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 -rotate-2 -skew-x-2 items-center transition-all`
-                  : `lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+                  ? `lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 -rotate-12 -skew-x-2 items-center transition-all`
+                  : `lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
               }
             >
               <div className=''>
@@ -82,8 +82,8 @@ const About = () => {
             <div
               className={
                 !arrange
-                  ? `mt-4 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 rotate-2 skew-x-2 items-center transition-all`
-                  : `mt-0 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+                  ? `mt-4 lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 rotate-6 skew-x-2 items-center transition-all`
+                  : `mt-0 lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
               }
             >
               <div className=''>
@@ -118,8 +118,8 @@ const About = () => {
             <div
               className={
                 !arrange
-                  ? `mt-4 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 -rotate-3 -skew-x-2 items-center transition-all`
-                  : `mt-0 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+                  ? `mt-4 lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 -rotate-6 -skew-x-2 items-center transition-all`
+                  : `mt-0 lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
               }
             >
               <div className=''>
@@ -155,8 +155,8 @@ const About = () => {
             <div
               className={
                 !arrange
-                  ? `mt-4 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 rotate-3 skew-x-2 items-center transition-all`
-                  : `mt-0 lg:grid grid-cols-4 w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
+                  ? `mt-4 lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 rotate-6 skew-x-2 items-center transition-all`
+                  : `mt-0 lg:grid grid-cols-4 lg:w-3/5 mx-auto gap-8 bg-white p-8 items-center transition-all`
               }
             >
               <div className=''>

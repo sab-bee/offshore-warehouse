@@ -1,6 +1,6 @@
 # offshore stockroom
 
-## [live link]()
+## [live link](https://offshore-stockroom.web.app/)
 
 ## offshore stockroom a website of warehouse management system. website consistent of homepage with a dashborad, top storage products, propter inventory management system and individual adming management access
 

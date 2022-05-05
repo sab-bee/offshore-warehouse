@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.init'
 import { ActiveLink } from '../ActiveLink/ActiveLink'
 import { motion } from 'framer-motion'
+import { async } from '@firebase/util'
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
@@ -54,7 +55,7 @@ const Navbar = () => {
                   <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
 
                   <button
-                    className='bg-indigo-600 p-2 text-white rounded-md'
+                    className='bg-primary hover:bg-indigo-700 p-2 text-white rounded-md'
                     onClick={() => {
                       signOut(auth)
                       navigate('/user/login')
