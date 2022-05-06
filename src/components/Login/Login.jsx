@@ -13,7 +13,16 @@ const Login = () => {
     handleLoginWithEmail,
     loginLoading,
   } = useFirebase()
-  const { register, handleSubmit, reset } = useForm()
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    trigger,
+  } = useForm({
+    mode: 'onChange',
+  })
   const [resetForm, setResetForm] = useState(false)
   const [clicked, setClicked] = useState(false)
 
@@ -98,10 +107,10 @@ const Login = () => {
               className='
           flex
           flex-col
-          gap-7
+          gap-10
         '
             >
-              <div className='flex flex-col gap-3'>
+              <div className='flex flex-col gap-3 relative'>
                 <label htmlFor='email'>Email address</label>
                 <input
                   id='email'
@@ -109,10 +118,23 @@ const Login = () => {
               p-3 focus:border-primary outline-none rounded-md'
                   placeholder='enter email address'
                   type='text'
-                  {...register('email', { required: true, maxLength: 100 })}
-                />{' '}
+                  {...register('email', {
+                    required: 'email required',
+                    maxLength: 100,
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: 'invalid email',
+                    },
+                  })}
+                  onBlur={() => trigger('email')}
+                />
+                {errors.email && (
+                  <p className='absolute text-red-600 -bottom-7'>
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
-              <div className='flex flex-col gap-3'>
+              <div className='flex flex-col gap-3 relative'>
                 <label htmlFor='password'>Password</label>
                 <input
                   id='password'
@@ -120,8 +142,17 @@ const Login = () => {
                   p-3 focus:border-primary outline-none rounded-md'
                   placeholder='enter password'
                   type='password'
-                  {...register('password', { required: true, maxLength: 100 })}
-                />{' '}
+                  {...register('password', {
+                    required: 'password required',
+                    maxLength: 100,
+                  })}
+                  onBlur={() => trigger('password')}
+                />
+                {errors.password && (
+                  <p className='absolute text-red-600 -bottom-7'>
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
               <p
                 className='w-fit ml-auto cursor-pointer text-primary underline select-none'

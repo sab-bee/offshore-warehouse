@@ -1961,8 +1961,8 @@ const Header = () => {
               y2='699.97'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#D1C4E9' />
-              <stop offset='1' stop-color='#EDE7F6' />
+              <stop stopColor='#D1C4E9' />
+              <stop offset='1' stopColor='#EDE7F6' />
             </linearGradient>
             <linearGradient
               id='paint1_linear_124_361'
@@ -1972,8 +1972,8 @@ const Header = () => {
               y2='704.61'
               gradientUnits='userSpaceOnUse'
             >
-              <stop stop-color='#D1C4E9' />
-              <stop offset='1' stop-color='#EDE7F6' />
+              <stop stopColor='#D1C4E9' />
+              <stop offset='1' stopColor='#EDE7F6' />
             </linearGradient>
           </defs>
         </motion.svg>

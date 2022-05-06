@@ -6,7 +6,15 @@ import { motion } from 'framer-motion'
 import Spinner from '../Spinner/Spinner'
 
 const Register = () => {
-  const { register, handleSubmit, reset } = useForm()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    trigger,
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+  })
   const navigate = useNavigate()
   const { handleRegisterWithEmail, createLoading } = useFirebase()
   const [clicked, setClicked] = useState(false)
@@ -26,47 +34,83 @@ const Register = () => {
       transition={{ duration: 0.2, ease: 'easeOut' }}
       exit={{ x: 300, opacity: 0 }}
     >
-      <h2 className='text-center font-semibold text-2xl my-5 md:my-12'>Registration</h2>
+      <h2 className='text-center font-semibold text-2xl my-5 md:my-12'>
+        Registration
+      </h2>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='
           flex
           flex-col
-          gap-7
+          gap-10
         '
       >
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col gap-3 relative'>
           <label htmlFor='name'>Full name</label>
           <input
             id='name'
             className='p-3 border border-gray-400 focus:border-primary rounded-md outline-none'
             placeholder='John Doe'
             type='text'
-            {...register('name', { required: true, maxLength: 100 })}
-          />{' '}
+            {...register('name', {
+              required: 'name is required',
+              maxLength: { value: 100, message: 'max length 100 character' },
+            })}
+            onBlur={() => trigger('name')}
+          />
+          {errors.name && (
+            <p className='absolute text-red-600 -bottom-7'>
+              {errors.name.message}
+            </p>
+          )}
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col gap-3 relative'>
           <label htmlFor='email'>Email address</label>
           <input
             id='email'
             className='p-3 border border-gray-400 focus:border-primary rounded-md outline-none'
             placeholder='John Doe@gmail.com'
-            type='text'
-            {...register('email', { required: true, maxLength: 100 })}
-          />{' '}
+            type='email'
+            {...register('email', {
+              required: 'email is required',
+              maxLength: {
+                value: 100,
+                message: 'max length 100 character',
+              },
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'invalid email',
+              },
+            })}
+            onBlur={() => trigger('email')}
+          />
+          {errors.email && (
+            <p className='absolute text-red-600 -bottom-7'>
+              {errors.email.message}
+            </p>
+          )}
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col gap-3 relative'>
           <label htmlFor='password'>Password</label>
           <input
             id='password'
             className='p-3 border border-gray-400 focus:border-primary rounded-md outline-none'
             placeholder='54731)!#@73$_CI4FJ#'
             type='password'
-            {...register('password', { required: true, maxLength: 100 })}
-          />{' '}
+            {...register('password', {
+              required: 'password is required',
+              maxLength: 100,
+            })}
+            onBlur={() => trigger('password')}
+          />
+          {errors.password && (
+            <p className='absolute text-red-600 -bottom-7'>
+              {errors.password.message}
+            </p>
+          )}
         </div>
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col gap-3 relative'>
           <label htmlFor='confirmPassword'>Confirm password</label>
           <input
             id='confirmPassword'
@@ -74,10 +118,16 @@ const Register = () => {
             placeholder='54731)!#@73$_CI4FJ#'
             type='password'
             {...register('confirmPassword', {
-              required: true,
+              required: 'confirm password is required',
               maxLength: 100,
             })}
-          />{' '}
+            onBlur={() => trigger('confirmPassword')}
+          />
+          {errors.confirmPassword && (
+            <p className='absolute text-red-600 -bottom-7'>
+              {errors.confirmPassword.message}
+            </p>
+          )}
         </div>
         <input
           className='bg-primary text-white p-3 cursor-pointer hover:bg-indigo-700 rounded-md'

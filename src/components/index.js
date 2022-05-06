@@ -6,7 +6,7 @@ import Modal from './Modal/Modal'
 import Footer from './Footer/Footer'
 import Spinner from './Spinner/Spinner'
 import Statistics from './Statistics/Statistics'
-import DashBoard from './DashBoard/DashBoard'
+import Analysis from './Analysis/Analysis'
 
 export {
   Navbar,
@@ -17,5 +17,5 @@ export {
   Footer,
   Spinner,
   Statistics,
-  DashBoard,
+  Analysis,
 }

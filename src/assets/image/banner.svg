@@ -355,12 +355,12 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_124_361" x1="284.323" y1="635.15" x2="288.373" y2="699.97" gradientUnits="userSpaceOnUse">
-<stop stop-color="#D1C4E9"/>
-<stop offset="1" stop-color="#EDE7F6"/>
+<stop stopColor="#D1C4E9"/>
+<stop offset="1" stopColor="#EDE7F6"/>
 </linearGradient>
 <linearGradient id="paint1_linear_124_361" x1="826.333" y1="639.19" x2="830.423" y2="704.61" gradientUnits="userSpaceOnUse">
-<stop stop-color="#D1C4E9"/>
-<stop offset="1" stop-color="#EDE7F6"/>
+<stop stopColor="#D1C4E9"/>
+<stop offset="1" stopColor="#EDE7F6"/>
 </linearGradient>
 </defs>
 </svg>

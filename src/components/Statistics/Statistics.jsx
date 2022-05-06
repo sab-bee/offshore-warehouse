@@ -23,7 +23,7 @@ const Statistics = () => {
       <h2 className='text-center font-semibold text-4xl text-gray-700 mb-12'>
         Yearly Statistics
       </h2>
-      <ResponsiveContainer width='100%' height={300}>
+      <ResponsiveContainer width='99%' height={300}>
         <AreaChart
           width={500}
           height={400}
