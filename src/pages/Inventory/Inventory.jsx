@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
+
 const Inventory = () => {
   const {
     register,
@@ -11,10 +12,11 @@ const Inventory = () => {
     reset,
     formState: { errors },
   } = useForm()
-  
+
   const { id } = useParams()
   const navigate = useNavigate()
   const [liquor, setLiquor] = useState({})
+
 
   useEffect(() => {
     axios

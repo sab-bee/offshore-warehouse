@@ -7,6 +7,7 @@ import {
   useSendPasswordResetEmail,
 } from 'react-firebase-hooks/auth'
 import { useLocation, useNavigate } from 'react-router-dom'
+
 import { toast } from 'react-toastify'
 import { auth } from '../firebase/firebase.init'
 
@@ -34,10 +35,9 @@ export function useFirebase() {
    */
   const navigate = useNavigate()
   const location = useLocation()
-
+  const from = location.state?.from?.pathname || '/'
   useEffect(() => {
     if (googleUser || createUser || loginUser) {
-      const from = location.state?.from?.pathname || '/'
       navigate(from, { replace: true })
       const email =
         loginUser?.user?.email ||
@@ -50,13 +50,7 @@ export function useFirebase() {
           localStorage.setItem('token', res.data?.token)
         })
     }
-  }, [
-    googleUser,
-    location.state?.from?.pathname,
-    navigate,
-    createUser,
-    loginUser,
-  ])
+  }, [googleUser, from, navigate, createUser, loginUser])
 
   useEffect(() => {
     if (createUser) {

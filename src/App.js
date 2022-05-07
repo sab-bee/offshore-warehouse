@@ -19,7 +19,6 @@ import {
 import { RequireAuth } from './RequireAuth/RequireAuth'
 
 function App() {
-  const location = useLocation()
   return (
     <ScrollToTop>
       <div className='flex flex-col min-h-screen '>
@@ -30,7 +29,7 @@ function App() {
             position='bottom-right'
           ></ToastContainer>
           <AnimatePresence exitBeforeEnter>
-            <Routes key={location.pathname} location={location}>
+            <Routes>
               <Route path='/' element={<Home />}></Route>
               <Route path='/addProduct' element={<AddLiquor />}></Route>
               <Route

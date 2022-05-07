@@ -11,9 +11,7 @@ export function RequireAuth({ children }) {
   if (loading) return <Spinner></Spinner>
 
   if (!user) {
-    return (
-      <Navigate to='/user/login' state={{ from: location }} replace></Navigate>
-    )
+    return <Navigate to='/user/login' state={{ from: location }} replace />
   }
 
   if (!user?.emailVerified) {
