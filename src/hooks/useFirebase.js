@@ -34,10 +34,11 @@ export function useFirebase() {
    */
   const navigate = useNavigate()
   const location = useLocation()
-  let from = location.state?.from?.pathname || '/'
 
   useEffect(() => {
     if (googleUser || createUser || loginUser) {
+      const from = location.state?.from?.pathname || '/'
+      navigate(from, { replace: true })
       const email =
         loginUser?.user?.email ||
         createUser?.user?.email ||
@@ -48,9 +49,14 @@ export function useFirebase() {
           // console.log(res.data.token)
           localStorage.setItem('token', res.data?.token)
         })
-      navigate(from, { replace: true })
     }
-  }, [googleUser, from, navigate, createUser, loginUser])
+  }, [
+    googleUser,
+    location.state?.from?.pathname,
+    navigate,
+    createUser,
+    loginUser,
+  ])
 
   useEffect(() => {
     if (createUser) {
@@ -78,9 +84,6 @@ export function useFirebase() {
     }
   }, [loginError, error, createError])
 
-  if (loginLoading) {
-    console.log('loading')
-  }
   /**
    * sing in with google
    */

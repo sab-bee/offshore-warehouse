@@ -5,7 +5,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const Inventory = () => {
-  const { register, handleSubmit, reset } = useForm()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm()
+  
   const { id } = useParams()
   const navigate = useNavigate()
   const [liquor, setLiquor] = useState({})
@@ -84,19 +90,30 @@ const Inventory = () => {
             >
               delivered
             </button>
+            {liquor.quantity < 1 && (
+              <span className='text-red-700 ml-4 font-medium'>stock out</span>
+            )}
             <form onSubmit={handleSubmit(onSubmit)} className='mt-12'>
               <input
                 className='px-5 py-3 w-32 border border-primary outline-none'
                 type='number'
                 placeholder='quantity'
-                {...register('quantity', { required: true, min: 1, max: 5000 })}
+                {...register('quantity', {
+                  required: 'required',
+                  min: 1,
+                  max: 5000,
+                })}
               />
+
               <input
                 className='bg-primary hover:bg-blue-600 px-5 py-3 w-32 ml-5 text-white cursor-pointer'
                 type='submit'
                 value='restock'
               />
             </form>
+            {errors.quantity && (
+              <p className='absolute text-red-700'>{errors.quantity.message}</p>
+            )}
           </motion.div>
         </motion.div>
       </div>
