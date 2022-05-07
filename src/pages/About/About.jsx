@@ -15,7 +15,7 @@ const About = () => {
           >
             <div className='lg:w-3/5 mx-auto'>
               <button
-                className='bg-primary text-white p-4 rounded'
+                className={`${arrange || "animate-bounce"} bg-primary text-white p-4 rounded `}
                 onClick={() => setArrange(!arrange)}
               >
                 {arrange ? 'unorganize' : 'organize'}

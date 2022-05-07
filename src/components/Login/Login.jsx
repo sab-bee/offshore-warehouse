@@ -44,7 +44,7 @@ const Login = () => {
       <AnimatePresence exitBeforeEnter>
         {resetForm && (
           <motion.div
-            className='w-full h-screen bg-[rgba(0,0,0,0.45)] fixed top-0'
+            className='w-full h-screen bg-[rgba(0,0,0,0.45)] fixed top-0 z-10'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
