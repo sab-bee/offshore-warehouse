@@ -161,7 +161,7 @@ const Login = () => {
                 forgot password
               </p>
               <input
-                className='bg-primary rounded-md text-white p-3 cursor-pointer hover:bg-indigo-700'
+                className='bg-primary rounded-md text-white p-3 cursor-pointer hover:bg-secondary transition-colors'
                 type='submit'
                 value='login'
               />
@@ -174,7 +174,7 @@ const Login = () => {
             </div>
             <div className='mt-6'>
               <button
-                className='border border-gray-400 p-2 cursor-pointer hover:bg-sky-white hover:border-transparent w-full transition-colors flex items-center justify-center gap-x-2 rounded-md'
+                className='border border-gray-400 p-2 cursor-pointer hover:bg-orange-100 hover:border-transparent w-full transition-colors flex items-center justify-center gap-x-2 rounded-md'
                 onClick={handleSignInWithGoogle}
               >
                 <img src={google} alt='' />

@@ -17,7 +17,7 @@ const Blogs = () => {
     },
   ]
   return (
-    <div className='w-[90%] md:w-3/5 xl:w-2/5 mx-auto space-y-8 my-14 bg-white p-10 rounded-2xl shadow-lg shadow-gray-200'>
+    <div className='w-[90%] md:w-3/5 xl:w-2/5 mx-auto space-y-8 my-14 bg-white p-10 rounded-2xl shadow-lg shadow-gray-200 border-t-4 border-primary'>
       {blogs.map((blog, index) => (
         <motion.div
           key={index}

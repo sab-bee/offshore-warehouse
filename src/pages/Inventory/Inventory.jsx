@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
+import { toast } from 'react-toastify'
 
 const Inventory = () => {
   const {
@@ -16,7 +16,6 @@ const Inventory = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [liquor, setLiquor] = useState({})
-
 
   useEffect(() => {
     axios
@@ -49,6 +48,9 @@ const Inventory = () => {
       .then((res) => {
         console.log(res.data)
         reset()
+        toast.success('done', {
+          autoClose: 1500,
+        })
       })
   }
 
@@ -108,7 +110,7 @@ const Inventory = () => {
               />
 
               <input
-                className='bg-primary hover:bg-blue-600 px-5 py-3 w-32 ml-5 text-white cursor-pointer'
+                className='bg-primary hover:bg-secondary px-5 py-3 w-32 ml-5 text-white cursor-pointer'
                 type='submit'
                 value='restock'
               />

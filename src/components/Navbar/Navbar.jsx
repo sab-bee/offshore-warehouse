@@ -1,11 +1,10 @@
 import { signOut } from 'firebase/auth'
 import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.init'
 import { ActiveLink } from '../ActiveLink/ActiveLink'
 import { motion } from 'framer-motion'
-import { async } from '@firebase/util'
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
@@ -18,7 +17,7 @@ const Navbar = () => {
     !paths.some((path) => pathname.includes(path)) && (
       <>
         <motion.div
-          className=' bg-slate-50 hidden lg:block sticky top-0 z-50 select-none text-slate-700 border-b border-gray-300'
+          className=' bg-white hidden lg:block sticky top-0 z-50 select-none text-slate-700 border-b border-gray-300'
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
@@ -35,7 +34,7 @@ const Navbar = () => {
                 >
                   <path
                     d='M2 21V7L12 3L22 7V21H16V13H8V21H2ZM9 21V19H11V21H9ZM11 18V16H13V18H11ZM13 21V19H15V21H13Z'
-                    fill='#0011ff'
+                    fill='#ea573d'
                   />
                 </svg>
 
@@ -55,7 +54,7 @@ const Navbar = () => {
                   <ActiveLink to='/myLiquors'>My Liquors</ActiveLink>
 
                   <button
-                    className='bg-primary hover:bg-indigo-700 p-2 text-white rounded-md'
+                    className='bg-primary hover:bg-secondary p-2 text-white rounded-md transition-colors ease-linear duration-300'
                     onClick={() => {
                       signOut(auth)
                       navigate('/user/login')

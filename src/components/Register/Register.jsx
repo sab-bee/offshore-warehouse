@@ -130,7 +130,7 @@ const Register = () => {
           )}
         </div>
         <input
-          className='bg-primary text-white p-3 cursor-pointer hover:bg-indigo-700 rounded-md'
+          className='bg-primary text-white p-3 cursor-pointer hover:bg-secondary rounded-md transition-colors'
           type='submit'
           value='register'
         />

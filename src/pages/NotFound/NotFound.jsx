@@ -14,7 +14,7 @@ const NotFound = () => {
         <h2 className='text-[6rem] font-bold text-center mt-6'>404</h2>
         <div className='text-center md:text-left'>
           <button
-            className='bg-sky-white text-primary p-4 font-medium hover:bg-slate-100'
+            className='bg-light text-primary p-4 font-medium hover:bg-slate-100'
             onClick={() => navigate('/')}
           >
             plsease go back to home

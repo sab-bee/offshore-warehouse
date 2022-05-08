@@ -25,11 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  background-color: #f0f0f5;
   -webkit-tap-highlight-color: transparent;
 }
 ::selection {
-  background-color: #e0eff8;
+  background-color: #f8e9e0;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -42,16 +41,16 @@ code {
   }
 
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px #96b6fa;
+    box-shadow: inset 0 0 10px #f8d2b9;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #6c82ff;
+    background: #dba47f;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #6c82ff;
+    background: #dba47f;
   }
 }

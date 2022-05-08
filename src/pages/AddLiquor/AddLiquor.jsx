@@ -43,7 +43,7 @@ const AddLiquor = () => {
     <Spinner></Spinner>
   ) : (
     <motion.div
-      className='min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto my-12 rounded-2xl p-12 bg-white'
+      className='relative min-h-[300px] w-4/5 sm:w-3/5 md:w-1/2 lg:2-2/6 xl:w-1/3 mx-auto my-12 rounded-2xl p-12 bg-white after:content-[""] after:w-[2px] after:h-full after:bg-red-500 after:absolute after:top-0 after:-left-4'
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.1 }}
@@ -207,7 +207,7 @@ const AddLiquor = () => {
           )}
         </div>
         <input
-          className='bg-primary text-white p-3 cursor-pointer hover:bg-indigo-700 transition-colors rounded'
+          className='bg-primary text-white p-3 cursor-pointer hover:bg-secondary transition-colors rounded'
           type='submit'
           value='add liquor'
         />

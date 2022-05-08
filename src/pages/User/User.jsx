@@ -8,7 +8,7 @@ const User = () => {
       <div className=' bg-primary text-sky-white hidden lg:grid items-center'>
         <div className='w-2/3 mx-auto'>
           <h1 className='text-6xl font-bold'>
-            <span className='bg-sky-white text-primary px-2'>Offshore</span>{' '}
+            <span className='bg-light text-primary px-2'>Offshore</span>{' '}
             warehouse management system
           </h1>
           <p className='w-4/5 mt-12'>

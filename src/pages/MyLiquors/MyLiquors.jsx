@@ -64,12 +64,12 @@ const MyLiquors = () => {
           <Modal confirm={confirm} setShowModal={setShowModal}></Modal>
         )}
       </AnimatePresence>
-      <div className='w-full md:w-4/5 lg:w-1/2 mx-auto bg-gray-50 p-6 rounded-2xl my-12 min-h-screen'>
-        <div className='grid grid-cols-4 justify-items-center'>
-          <p className='font-medium'>product</p>
-          <p className='font-medium'>price</p>
-          <p className='font-medium'>quantity</p>
-          <p className='font-medium'>action</p>
+      <div className='w-full md:w-4/5 lg:w-1/2 mx-auto shadow-lg p-6 rounded-2xl my-12 min-h-screen border-t-4 border-primary '>
+        <div className='grid grid-cols-4 justify-items-center border-b pb-4 font-medium'>
+          <p >product</p>
+          <p >price</p>
+          <p >quantity</p>
+          <p >remove stock</p>
         </div>
 
         {liquors.length === 0 && fetched ? (
@@ -110,14 +110,14 @@ const MyLiquors = () => {
 function MyLiquor({ liquor, removeFromMyList }) {
   const { productName, productPrice, thumbnail, quantity, _id } = liquor
   return (
-    <div className='grid grid-cols-4 bg-white my-5 items-center justify-items-center rounded-2xl hover:bg-gray-100'>
-      <div className='flex items-center '>
+    <div className='grid grid-cols-4 bg-white my-5 items-center  rounded-2xl hover:bg-orange-50'>
+      <div className='flex items-center justify-start'>
         <img className='h-10' src={thumbnail} alt='' />
         <p>{productName}</p>
       </div>
-      <p>$ {productPrice}</p>
-      <p>{quantity}</p>
-      <button>
+      <p className='text-center'>$ {productPrice}</p>
+      <p className='text-center'>{quantity}</p>
+      <button className='w-fit mx-auto'>
         <img src={bin} alt='' onClick={() => removeFromMyList(_id)} />
       </button>
     </div>
