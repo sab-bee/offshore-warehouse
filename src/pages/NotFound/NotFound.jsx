@@ -5,7 +5,7 @@ const NotFound = () => {
   const navigate = useNavigate()
   return (
     <div className='min-h-screen grid items-center'>
-      <div className='bg-blue-700 w-4/5 lg:w-2/5 mx-auto min-h-[300px] p-12 text-white'>
+      <div className='bg-primary w-4/5 lg:w-2/5 mx-auto min-h-[300px] p-12 text-white'>
         <h2 className='font-semibold text-2xl'>Page Not Found</h2>
         <p className='text-lg mt-4'>
           The page your are trying to access is not available or either its
