@@ -43,15 +43,15 @@ const Statistics = () => {
             type='monotone'
             dataKey='reveneue'
             stackId='1'
-            stroke='#110b86'
-            fill='#7e78f7'
+            stroke='#eb8d41'
+            fill='#f7b178'
           />
           <Area
             type='monotone'
             dataKey='invest'
             stackId='2'
-            stroke='#8a0e0e'
-            fill='#f78090'
+            stroke='#494949'
+            fill='#9b9b9b'
           />
         </AreaChart>
       </ResponsiveContainer>

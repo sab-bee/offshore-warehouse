@@ -1,12 +1,13 @@
 import React from 'react'
-import {Analysis, Header, Liquors, Statistics } from '../../components'
+import {Analysis, Colaboration, Header, Liquors, Statistics } from '../../components'
 import { motion } from 'framer-motion'
 
 const Home = () => {
   return (
     <div className='w-4/5 mx-auto'>
       <Header></Header>
-      <Analysis></Analysis>
+      {/* <Analysis></Analysis> */}
+      <Colaboration></Colaboration>
       <motion.p
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

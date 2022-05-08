@@ -25,7 +25,7 @@ const Liquors = () => {
             key={liquor._id}
             initial={{ x: 200, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
             viewport={{ once: true }}
           >
             <Liquor liquor={liquor}></Liquor>

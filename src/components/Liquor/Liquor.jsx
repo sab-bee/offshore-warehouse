@@ -45,7 +45,7 @@ const Liquor = ({ liquor }) => {
         </div>
 
         <button
-          className='p-3 bg-primary text-white rounded-md'
+          className='p-3 bg-primary hover:bg-secondary transition-colors text-white rounded-md'
           onClick={() => navigate(`inventory/${_id}`)}
         >
           manage
