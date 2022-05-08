@@ -89,17 +89,17 @@ const Inventory = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <button
-              className='border border-primary px-5 py-3 w-32 font-medium'
+              className='border border-primary px-5 py-3 w-32 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-colors rounded'
               onClick={handleDeliver}
             >
-              delivered
+              deliver
             </button>
             {liquor.quantity < 1 && (
               <span className='text-red-700 ml-4 font-medium'>stock out</span>
             )}
             <form onSubmit={handleSubmit(onSubmit)} className='mt-12'>
               <input
-                className='px-5 py-3 w-32 border border-primary outline-none'
+                className='px-5 py-3 w-32 border border-primary outline-none rounded'
                 type='number'
                 placeholder='quantity'
                 {...register('quantity', {
@@ -110,7 +110,7 @@ const Inventory = () => {
               />
 
               <input
-                className='bg-primary hover:bg-secondary px-5 py-3 w-32 ml-5 text-white cursor-pointer'
+                className='bg-primary hover:bg-secondary px-5 py-3 w-32 ml-5 text-white cursor-pointer rounded'
                 type='submit'
                 value='restock'
               />
