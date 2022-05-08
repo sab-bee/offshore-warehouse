@@ -69,7 +69,7 @@ const ManageInventories = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.8 }}
-          className='bg-primary p-3 w-full text-white rounded-md hover:bg-secondary mt-auto'
+          className='bg-primary p-3 w-full text-white rounded-md hover:bg-secondary mt-auto transition-colors'
           onClick={() => navigate('/addProduct')}
         >
           add new liquor

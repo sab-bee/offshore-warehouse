@@ -7,6 +7,7 @@ import { auth } from '../../firebase/firebase.init'
 import { useNavigate } from 'react-router-dom'
 import { Modal, Spinner } from '../../components'
 import { signOut } from 'firebase/auth'
+import { toast } from 'react-toastify'
 
 const MyLiquors = () => {
   const [liquors, setLiquors] = useState([])
@@ -54,6 +55,9 @@ const MyLiquors = () => {
         console.log(res)
         const rest = liquors.filter((liquor) => liquor._id !== _id)
         setLiquors(rest)
+        toast.success('liquor deleted', {
+          autoClose: 1500,
+        })
       })
   }
 

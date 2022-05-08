@@ -42,7 +42,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='text-center sm:text-left text-zinc-500'>
-            <h2 className='mb-7'>get updates</h2>
+            <h2 className='mb-7 text-white'>get updates</h2>
             <form className='flex flex-col space-y-3' onSubmit={handleSubmit}>
               <input
                 className='p-3 outline-none bg-orange-50'
