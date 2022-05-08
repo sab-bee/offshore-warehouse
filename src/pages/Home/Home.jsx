@@ -1,12 +1,11 @@
 import React from 'react'
-import {Analysis, Colaboration, Header, Liquors, Statistics } from '../../components'
+import { Colaboration, Header, Liquors, Statistics } from '../../components'
 import { motion } from 'framer-motion'
 
 const Home = () => {
   return (
     <div className='w-4/5 mx-auto'>
       <Header></Header>
-      {/* <Analysis></Analysis> */}
       <Colaboration></Colaboration>
       <motion.p
         initial={{ y: 100, opacity: 0 }}
@@ -14,7 +13,7 @@ const Home = () => {
         transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
         className='text-center text-4xl text-gray-800 font-semibold mt-20'
       >
-        top inventory items
+        Top inventory items
       </motion.p>
       <Liquors></Liquors>
       <Statistics></Statistics>

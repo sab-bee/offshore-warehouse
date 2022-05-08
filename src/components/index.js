@@ -6,7 +6,6 @@ import Modal from './Modal/Modal'
 import Footer from './Footer/Footer'
 import Spinner from './Spinner/Spinner'
 import Statistics from './Statistics/Statistics'
-import Analysis from './Analysis/Analysis'
 import Colaboration from './Colaboration/Colaboration'
 
 export {
@@ -18,6 +17,5 @@ export {
   Footer,
   Spinner,
   Statistics,
-  Analysis,
   Colaboration
 }
